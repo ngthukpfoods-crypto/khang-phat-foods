@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khang Phát Foods – Gia Vị Hương Vị Đậm Đà</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Dancing+Script:wght@700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden}
+
+/* ===== SPARKLE CANVAS ===== */
+#sparkle-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:.6}
+
+/* ===== CSS VARIABLES ===== */
+:root{
+  --green:#1b6f3a;
+  --green-light:#2d9e56;
+  --green-dark:#0e4321;
+  --green-pale:#e8f5ee;
+  --gold:#d4a017;
+  --gold-light:#f0c040;
+  --red:#c0392b;
+  --white:#ffffff;
+  --gray:#f8faf8;
+  --shadow:0 8px 40px rgba(27,111,58,.15);
+  --shadow-hover:0 20px 60px rgba(27,111,58,.3);
+}
+
+/* ===== SHIMMER ANIMATION ===== */
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(212,160,23,.4)}50%{box-shadow:0 0 50px rgba(212,160,23,.9),0 0 100px rgba(212,160,23,.3)}}
+@keyframes sparkle-rotate{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.2)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes countUp{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes shine{0%{left:-100%}100%{left:200%}}
+@keyframes border-glow{0%,100%{border-color:var(--gold)}50%{border-color:var(--gold-light)}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes hero-zoom{0%{transform:scale(1)}100%{transform:scale(1.06)}}
+@keyframes star-twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+
+/* ===== NAVBAR ===== */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(14,67,33,.97);backdrop-filter:blur(12px);padding:0 40px;transition:all .3s}
+#navbar.scrolled{background:rgba(14,67,33,1);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{height:50px;width:50px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.nav-logo-badge{height:50px;width:50px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle at 30% 30%,var(--green-light),var(--green-dark));display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.25rem;color:#fff;letter-spacing:1px;box-shadow:0 0 18px rgba(212,160,23,.35);flex-shrink:0}
+.nav-logo-text{color:#fff;font-size:1.1rem;font-weight:700;line-height:1.2}
+.nav-logo-text span{color:var(--gold-light);font-size:.75rem;display:block;font-weight:400}
+.nav-menu{display:flex;gap:4px;list-style:none}
+.nav-menu a{color:rgba(255,255,255,.9);text-decoration:none;padding:8px 14px;border-radius:6px;font-size:.85rem;font-weight:500;transition:all .3s;white-space:nowrap}
+.nav-menu a:hover,.nav-menu a.active{color:var(--gold-light);background:rgba(255,255,255,.1)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#1a1a1a!important;font-weight:700!important;border-radius:25px!important;padding:9px 20px!important;animation:pulse-glow 2s infinite}
+.nav-hotline{color:var(--gold-light);font-size:.8rem;font-weight:600;white-space:nowrap}
+
+/* ===== HERO ===== */
+#hero{position:relative;height:100vh;min-height:650px;overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background:url('z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg') center/cover no-repeat;animation:hero-zoom 10s ease-in-out infinite alternate}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,67,33,.88) 0%,rgba(14,67,33,.6) 50%,rgba(0,0,0,.3) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;padding-top:70px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,160,23,.2);border:1px solid var(--gold);color:var(--gold-light);padding:6px 16px;border-radius:30px;font-size:.8rem;font-weight:600;margin-bottom:20px;animation:border-glow 2s infinite}
+.hero-badge::before{content:'✦';animation:star-twinkle 1.5s infinite}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;animation:fadeInLeft .8s ease both}
+.hero-title .highlight{color:var(--gold-light);position:relative;display:inline-block}
+.hero-title .highlight::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px;background:var(--gold);border-radius:2px}
+.hero-sub{font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,.85);margin-bottom:32px;max-width:560px;line-height:1.7;animation:fadeInLeft .8s .2s ease both}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fadeInLeft .8s .4s ease both}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#1a1a1a;padding:16px 36px;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;position:relative;overflow:hidden;animation:pulse-glow 2s infinite}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:shine 2s infinite 1s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,160,23,.6)}
+.btn-secondary{background:transparent;color:#fff;padding:15px 32px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.5);transition:all .3s}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-3px)}
+.hero-stats{position:absolute;bottom:40px;left:0;right:0;z-index:2}
+.hero-stats-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;gap:32px;flex-wrap:wrap}
+.stat-item{text-align:center;animation:fadeInUp .8s ease both}
+.stat-item:nth-child(1){animation-delay:.6s}
+.stat-item:nth-child(2){animation-delay:.8s}
+.stat-item:nth-child(3){animation-delay:1s}
+.stat-item:nth-child(4){animation-delay:1.2s}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:var(--gold-light);display:block;text-shadow:0 0 20px rgba(240,192,64,.5)}
+.stat-label{color:rgba(255,255,255,.8);font-size:.78rem;margin-top:2px}
+
+/* ===== TICKER ===== */
+#ticker{background:linear-gradient(135deg,var(--gold-dark,#8b6914),var(--gold));overflow:hidden;padding:12px 0}
+.ticker-wrap{display:flex;gap:0}
+.ticker-content{display:flex;gap:80px;animation:ticker 30s linear infinite;white-space:nowrap}
+.ticker-content span{color:#1a1a1a;font-weight:700;font-size:.85rem;display:flex;align-items:center;gap:8px}
+.ticker-content span::before{content:'✦';color:var(--green)}
+
+/* ===== SECTION HEADERS ===== */
+.section-header{text-align:center;margin-bottom:56px}
+.section-eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.section-eyebrow::before,.section-eyebrow::after{content:'';width:30px;height:2px;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:2px}
+.section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--green-dark);line-height:1.2;margin-bottom:16px}
+.section-title .gold{color:var(--gold)}
+.section-desc{color:#555;max-width:600px;margin:0 auto;line-height:1.8;font-size:1rem}
+
+/* ===== TRUST SECTION ===== */
+#trust{padding:80px 40px;background:var(--gray)}
+.trust-inner{max-width:1400px;margin:0 auto}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-top:48px}
+.trust-card{background:#fff;border-radius:20px;padding:36px 28px;text-align:center;box-shadow:var(--shadow);transition:all .4s;position:relative;overflow:hidden;border:1px solid rgba(27,111,58,.08)}
+.trust-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),var(--gold));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.trust-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover)}
+.trust-card:hover::before{transform:scaleX(1)}
+.trust-icon{width:72px;height:72px;background:linear-gradient(135deg,var(--green-pale),rgba(212,160,23,.1));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2rem;transition:transform .4s}
+.trust-card:hover .trust-icon{transform:rotate(10deg) scale(1.1)}
+.trust-title{font-weight:800;font-size:1rem;color:var(--green-dark);margin-bottom:8px}
+.trust-text{color:#777;font-size:.85rem;line-height:1.6}
+
+/* ===== PROBLEM/SOLUTION ===== */
+#problem{padding:100px 40px;background:#fff;position:relative;overflow:hidden}
+#problem::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(27,111,58,.06),transparent);border-radius:50%}
+.problem-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.problem-image-wrap{position:relative;animation:float 4s ease-in-out infinite}
+.problem-image-wrap img{width:100%;border-radius:24px;box-shadow:var(--shadow-hover)}
+.problem-badge{position:absolute;top:-20px;right:-20px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#1a1a1a;padding:16px 24px;border-radius:16px;font-weight:800;font-size:.9rem;text-align:center;box-shadow:0 8px 30px rgba(212,160,23,.5);animation:pulse-glow 2s infinite}
+.problem-content{animation:fadeInRight .8s ease both}
+.problem-list{list-style:none;margin:28px 0}
+.problem-list li{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid rgba(27,111,58,.08);font-size:.95rem;color:#444;line-height:1.6}
+.problem-list li .icon{width:40px;height:40px;background:linear-gradient(135deg,var(--green),var(--green-light));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;flex-shrink:0}
+
+/* ===== FEATURED PRODUCTS ===== */
+#featured{padding:100px 40px;background:linear-gradient(180deg,#fff 0%,var(--gray) 100%)}
+.featured-inner{max-width:1400px;margin:0 auto}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+.product-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:all .4s;cursor:pointer;position:relative}
+.product-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:var(--shadow-hover)}
+.product-card-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--red);color:#fff;padding:5px 12px;border-radius:20px;font-size:.72rem;font-weight:700;text-transform:uppercase}
+.product-card-badge.new{background:var(--green)}
+.product-card-badge.hot{background:var(--red)}
+.product-img-wrap{position:relative;overflow:hidden;height:240px}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.product-card:hover .product-img-wrap img{transform:scale(1.1)}
+.product-shimmer{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 50%,rgba(255,255,255,0) 100%);background-size:200% 200%;opacity:0;transition:opacity .3s}
+.product-card:hover .product-shimmer{opacity:1;animation:shimmer 1.5s infinite}
+.product-body{padding:20px}
+.product-category{font-size:.72rem;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.product-name{font-weight:800;font-size:1rem;color:var(--green-dark);margin-bottom:6px;line-height:1.4}
+.product-desc{font-size:.82rem;color:#777;line-height:1.5;margin-bottom:16px}
+.product-footer{display:flex;justify-content:space-between;align-items:center}
+.product-price{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--red);font-size:1rem}
+.btn-buy{background:linear-gradient(135deg,var(--green),var(--green-light));color:#fff;padding:8px 18px;border-radius:20px;font-size:.8rem;font-weight:700;border:none;cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-buy:hover{transform:scale(1.05);box-shadow:0 5px 20px rgba(27,111,58,.4)}
+
+/* ===== SHOWCASE / PROMO BANNERS ===== */
+#showcase{padding:100px 40px;background:linear-gradient(180deg,var(--gray) 0%,#fff 100%)}
+.showcase-inner{max-width:1400px;margin:0 auto}
+.showcase-feature{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.showcase-card{position:relative;display:block;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;border:2px solid transparent;transition:all .4s}
+.showcase-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);border-color:var(--gold)}
+.showcase-card img{width:100%;display:block;transition:transform .6s}
+.showcase-card.ratio-wide img{aspect-ratio:6/5;object-fit:cover}
+.showcase-card.ratio-square img{aspect-ratio:1/1;object-fit:cover}
+.showcase-card:hover img{transform:scale(1.06)}
+.showcase-shine{position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);pointer-events:none}
+.showcase-card:hover .showcase-shine{left:200%;transition:left 1s ease}
+.showcase-cta{position:absolute;bottom:0;left:0;right:0;padding:34px 18px 16px;background:linear-gradient(to top,rgba(14,67,33,.95),transparent);color:#fff;font-weight:700;font-size:.92rem;display:flex;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(12px);transition:all .4s}
+.showcase-card:hover .showcase-cta{opacity:1;transform:translateY(0)}
+
+/* ===== ABOUT ===== */
+#about{padding:100px 40px;background:#fff;position:relative;overflow:hidden}
+.about-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-images{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative}
+.about-images img:first-child{border-radius:20px 20px 4px 20px;height:300px;object-fit:cover;width:100%;grid-column:1/-1;box-shadow:var(--shadow)}
+.about-images img:nth-child(2){border-radius:4px 20px 20px 4px;height:200px;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+.about-images img:nth-child(3){border-radius:20px 4px 4px 20px;height:200px;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+.about-year{position:absolute;bottom:-20px;right:-20px;background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;padding:24px;border-radius:20px;text-align:center;box-shadow:var(--shadow-hover)}
+.about-year strong{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:900;display:block;color:var(--gold-light)}
+.about-content{}
+.about-story{color:#555;line-height:1.9;font-size:.95rem;margin-bottom:24px}
+.about-milestones{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.milestone{background:var(--green-pale);border-radius:16px;padding:20px;border-left:4px solid var(--green)}
+.milestone strong{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:900;color:var(--green);display:block}
+.milestone span{font-size:.8rem;color:#666;margin-top:4px}
+
+/* ===== PRODUCT CATEGORIES ===== */
+#categories{padding:100px 40px;background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 100%);position:relative;overflow:hidden}
+#categories::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cat-inner{max-width:1400px;margin:0 auto}
+.cat-inner .section-title{color:#fff}
+.cat-inner .section-desc{color:rgba(255,255,255,.75)}
+.cat-inner .section-eyebrow{color:var(--gold-light)}
+.cat-inner .section-eyebrow::before,.cat-inner .section-eyebrow::after{background:var(--gold-light)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+.cat-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:32px 20px;text-align:center;cursor:pointer;transition:all .4s;position:relative;overflow:hidden}
+.cat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,160,23,.2),rgba(255,255,255,.05));opacity:0;transition:opacity .4s}
+.cat-card:hover{transform:translateY(-8px);border-color:var(--gold-light);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.cat-card:hover::before{opacity:1}
+.cat-icon{font-size:3rem;margin-bottom:16px;display:block;transition:transform .4s}
+.cat-card:hover .cat-icon{transform:scale(1.2) rotate(10deg)}
+.cat-name{color:#fff;font-weight:800;font-size:.95rem;margin-bottom:6px}
+.cat-count{color:rgba(255,255,255,.6);font-size:.75rem}
+
+/* ===== GIFT BOXES ===== */
+#gifts{padding:100px 40px;background:var(--gray)}
+.gifts-inner{max-width:1400px;margin:0 auto}
+.gifts-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:0}
+.gift-card{border-radius:24px;overflow:hidden;position:relative;cursor:pointer;box-shadow:var(--shadow-hover)}
+.gift-card img{width:100%;height:420px;object-fit:cover;transition:transform .6s}
+.gift-card:hover img{transform:scale(1.06)}
+.gift-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+.gift-overlay h3{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:#fff;margin-bottom:8px}
+.gift-overlay p{color:rgba(255,255,255,.8);font-size:.9rem;line-height:1.6;margin-bottom:16px}
+.gift-overlay .btn-primary{font-size:.85rem;padding:12px 24px}
+
+/* ===== BENEFITS ===== */
+#benefits{padding:100px 40px;background:#fff}
+.benefits-inner{max-width:1400px;margin:0 auto}
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px}
+.benefit-item{display:flex;gap:20px;padding:28px;border-radius:20px;background:var(--green-pale);border:1px solid rgba(27,111,58,.1);transition:all .4s}
+.benefit-item:hover{background:#fff;box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+.benefit-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--green),var(--green-light));border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;flex-shrink:0}
+.benefit-text h4{font-weight:800;color:var(--green-dark);margin-bottom:6px;font-size:.95rem}
+.benefit-text p{color:#666;font-size:.85rem;line-height:1.6}
+
+/* ===== TESTIMONIALS ===== */
+#testimonials{padding:100px 40px;background:linear-gradient(135deg,#f8fffe,var(--gray))}
+.test-inner{max-width:1400px;margin:0 auto}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
+.test-card{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow);transition:all .4s;position:relative;overflow:hidden}
+.test-card::before{content:'❝';position:absolute;top:16px;right:24px;font-size:5rem;color:var(--green-pale);font-family:serif;line-height:1}
+.test-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
+.test-stars{color:var(--gold);font-size:1.1rem;letter-spacing:2px;margin-bottom:16px}
+.test-text{color:#555;font-size:.92rem;line-height:1.8;margin-bottom:20px;font-style:italic}
+.test-author{display:flex;align-items:center;gap:14px}
+.test-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--gold));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.1rem;flex-shrink:0}
+.test-name{font-weight:700;color:var(--green-dark);font-size:.9rem}
+.test-location{color:#999;font-size:.78rem}
+
+/* ===== GALLERY ===== */
+#gallery{padding:100px 40px;background:#fff}
+.gallery-inner{max-width:1400px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.gallery-item{border-radius:16px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:1}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(27,111,58,.7),transparent);opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;padding:20px}
+.gallery-item:hover .gallery-item-overlay{opacity:1}
+.gallery-item-overlay span{color:#fff;font-weight:700;font-size:.9rem}
+
+/* ===== GUARANTEE ===== */
+#guarantee{padding:80px 40px;background:linear-gradient(135deg,var(--green-dark),var(--green))}
+.guarantee-inner{max-width:900px;margin:0 auto;text-align:center}
+.guarantee-inner .section-title{color:#fff}
+.guarantee-badge{display:inline-flex;align-items:center;gap:16px;background:rgba(255,255,255,.1);border:2px solid var(--gold);border-radius:20px;padding:24px 40px;margin-top:40px;animation:border-glow 2s infinite}
+.guarantee-badge .g-icon{font-size:3rem}
+.guarantee-badge p{color:#fff;font-size:1rem;line-height:1.6;text-align:left}
+.guarantee-badge strong{color:var(--gold-light);font-size:1.2rem;display:block;margin-bottom:4px}
+.cert-list{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:40px}
+.cert-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:20px 28px;color:#fff;text-align:center;transition:all .3s}
+.cert-item:hover{background:rgba(255,255,255,.2);transform:translateY(-4px)}
+.cert-item strong{font-size:1.1rem;display:block;color:var(--gold-light);margin-bottom:4px}
+.cert-item span{font-size:.78rem;color:rgba(255,255,255,.75)}
+
+/* ===== CTA SECTION ===== */
+#cta{padding:100px 40px;background:var(--gray);position:relative;overflow:hidden}
+#cta::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231b6f3a' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E")}
+.cta-inner{max-width:900px;margin:0 auto;text-align:center;position:relative}
+.cta-inner .section-title{font-size:clamp(2rem,4vw,3.2rem)}
+.cta-inner .section-desc{font-size:1.05rem;margin-bottom:40px}
+.cta-actions{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.cta-urgency{margin-top:20px;color:var(--red);font-size:.85rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px}
+
+/* ===== FAQ ===== */
+#faq{padding:80px 40px;background:#fff}
+.faq-inner{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(27,111,58,.12);padding:20px 0}
+.faq-question{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:700;color:var(--green-dark);font-size:.95rem;gap:16px}
+.faq-question::after{content:'+';font-size:1.5rem;color:var(--green);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-question::after{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;color:#666;font-size:.9rem;line-height:1.8}
+.faq-item.open .faq-answer{max-height:300px;padding-top:12px}
+
+/* ===== CONTACT ===== */
+#contact{padding:80px 40px;background:var(--green-dark)}
+.contact-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start}
+.contact-info h2{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:#fff;margin-bottom:20px}
+.contact-info p{color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:28px;font-size:.9rem}
+.contact-detail{display:flex;align-items:center;gap:14px;color:#fff;margin-bottom:16px;font-size:.9rem}
+.contact-detail .icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-form{background:rgba(255,255,255,.05);border-radius:24px;padding:40px;border:1px solid rgba(255,255,255,.1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{color:rgba(255,255,255,.7);font-size:.82rem;font-weight:600}
+.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 16px;color:#fff;font-size:.9rem;transition:all .3s;font-family:inherit;resize:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.12)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.35)}
+.form-group select option{background:var(--green-dark);color:#fff}
+.form-submit{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#1a1a1a;padding:14px 36px;border-radius:50px;font-weight:800;font-size:.95rem;border:none;cursor:pointer;width:100%;transition:all .3s;margin-top:8px}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,160,23,.5)}
+
+/* ===== FOOTER ===== */
+footer{background:#0a2e18;padding:60px 40px 30px}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo-text{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:12px}
+.footer-brand .logo-text span{color:var(--gold-light)}
+.footer-brand p{color:rgba(255,255,255,.55);font-size:.85rem;line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:12px}
+.social-btn{width:40px;height:40px;background:rgba(255,255,255,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);text-decoration:none;transition:all .3s;font-size:1.1rem}
+.social-btn:hover{background:var(--gold);color:#1a1a1a;transform:translateY(-3px)}
+.footer-col h4{color:#fff;font-weight:800;font-size:.9rem;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(255,255,255,.1)}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:8px}
+.footer-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.83rem;transition:color .3s;display:flex;align-items:center;gap:6px}
+.footer-col ul li a:hover{color:var(--gold-light)}
+.footer-col ul li a::before{content:'›';color:var(--green-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.footer-copy{color:rgba(255,255,255,.4);font-size:.78rem}
+.footer-bottom-links{display:flex;gap:20px}
+.footer-bottom-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.78rem;transition:color .3s}
+.footer-bottom-links a:hover{color:var(--gold-light)}
+
+/* ===== FLOATING CART ===== */
+.floating-btns{position:fixed;right:24px;bottom:80px;z-index:998;display:flex;flex-direction:column;gap:12px}
+.float-btn{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:1.3rem;box-shadow:0 6px 20px rgba(0,0,0,.3);transition:all .3s;position:relative}
+.float-btn:hover{transform:scale(1.1)}
+.float-btn.zalo{background:linear-gradient(135deg,#0068ff,#0088ff)}
+.float-btn.phone{background:linear-gradient(135deg,var(--green),var(--green-light))}
+.float-btn.cart{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#1a1a1a}
+.float-btn .pulse{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:var(--red);border-radius:50%;border:2px solid #fff;animation:pulse-glow .8s infinite}
+
+/* ===== SCROLL TOP ===== */
+#scroll-top{position:fixed;bottom:24px;right:24px;width:48px;height:48px;background:linear-gradient(135deg,var(--green),var(--green-light));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;z-index:998;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow);border:none;font-size:1.1rem}
+#scroll-top.visible{opacity:1;transform:translateY(0)}
+
+/* ===== GLITTER OVERLAY ===== */
+.glitter{position:absolute;pointer-events:none;z-index:1}
+.glitter-dot{position:absolute;border-radius:50%;animation:star-twinkle 2s infinite}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .7s ease,transform .7s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* ===== GOLDEN DIVIDER ===== */
+.gold-divider{display:flex;align-items:center;gap:16px;margin:0 auto 20px;max-width:300px}
+.gold-divider::before,.gold-divider::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--gold))}
+.gold-divider::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.gold-divider span{color:var(--gold);font-size:1.2rem}
+
+/* ===== NOTICE BANNER ===== */
+.notice-banner{background:linear-gradient(135deg,var(--red),#e74c3c);color:#fff;text-align:center;padding:10px;font-size:.82rem;font-weight:600;position:relative}
+.notice-banner span{color:var(--gold-light)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .problem-inner,.about-inner,.contact-inner,.footer-grid{grid-template-columns:1fr;gap:40px}
+  .gifts-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gallery-item:first-child,.gallery-item:last-child{grid-row:auto;grid-column:auto}
+  .about-milestones{grid-template-columns:1fr 1fr}
+  .showcase-feature{grid-template-columns:1fr}
+  #navbar{padding:0 20px}
+  .nav-menu{display:none}
+}
+@media(max-width:768px){
+  #hero .hero-content{padding:0 20px;padding-top:70px}
+  .hero-stats-inner{gap:16px;padding:0 20px}
+  .stat-num{font-size:1.6rem}
+  .trust-grid,.products-grid,.cat-grid,.benefits-grid,.test-grid,.showcase-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  section{padding:60px 20px!important}
+  #ticker{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- SPARKLE CANVAS -->
+<canvas id="sparkle-canvas"></canvas>
+
+<!-- NOTICE BANNER -->
+<div class="notice-banner">
+  🎁 CHƯƠNG TRÌNH HÈ 2026: Mua 2 hộp quà tặng <span>Nêm Nếm Yêu Thương</span> — Tặng ngay 1 bộ gia vị | Giao hàng toàn quốc ⚡
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-badge">KP</div>
+      <div class="nav-logo-text">KHANG PHÁT FOODS <span>Hương Vị Đậm Đà</span></div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#hero" class="active">Trang Chủ</a></li>
+      <li><a href="#about">Giới Thiệu</a></li>
+      <li><a href="#featured">Sản Phẩm</a></li>
+      <li><a href="#gifts">Hộp Quà</a></li>
+      <li><a href="#guarantee">Chứng Nhận</a></li>
+      <li><a href="#contact">Cơ Hội Hợp Tác</a></li>
+      <li><a href="tel:0123456789" class="nav-cta">📞 Đặt Hàng Ngay</a></li>
+    </ul>
+    <div class="nav-hotline">📞 Hotline: 0905.xxx.xxx</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Thương Hiệu Gia Vị Đỉnh Việt Nam</div>
+    <h1 class="hero-title">
+      Gia Vị <span class="highlight">Khang Phát</span><br>
+      Hương Vị Đậm Đà —<br>Bữa Cơm Thêm Yêu Thương
+    </h1>
+    <p class="hero-sub">Bộ sưu tập gia vị hoàn chỉnh: sốt chấm, sốt ướp, gia vị nấu lẩu — sạch, ngon, tiện lợi cho mọi bữa ăn. Không phẩm màu. Không chất bảo quản độc hại.</p>
+    <div class="hero-actions">
+      <a href="#featured" class="btn-primary">🛒 Xem Sản Phẩm Ngay</a>
+      <a href="#about" class="btn-secondary">▶ Khám Phá Câu Chuyện</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stats-inner">
+      <div class="stat-item">
+        <span class="stat-num" data-count="50">50+</span>
+        <div class="stat-label">Sản phẩm gia vị</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="10000">10.000+</span>
+        <div class="stat-label">Khách hàng tin dùng</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="5">5+</span>
+        <div class="stat-label">Năm kinh nghiệm</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="63">63</span>
+        <div class="stat-label">Tỉnh thành phân phối</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div id="ticker">
+  <div class="ticker-wrap">
+    <div class="ticker-content" id="ticker-content">
+      <span>Gia vị ướp bò né chuẩn vị Sài Gòn</span>
+      <span>Muối chanh tươi — best seller 2025</span>
+      <span>Sốt lẩu bò đậm đà, tiện lợi</span>
+      <span>Bộ quà Nêm Nếm Yêu Thương — quà tặng ý nghĩa</span>
+      <span>Giao hàng toàn quốc 24h</span>
+      <span>Không phẩm màu — không chất bảo quản độc hại</span>
+      <span>Đối tác phân phối B2B — hợp tác ngay hôm nay</span>
+      <span>Gia vị ướp bò né chuẩn vị Sài Gòn</span>
+      <span>Muối chanh tươi — best seller 2025</span>
+      <span>Sốt lẩu bò đậm đà, tiện lợi</span>
+      <span>Bộ quà Nêm Nếm Yêu Thương — quà tặng ý nghĩa</span>
+      <span>Giao hàng toàn quốc 24h</span>
+      <span>Không phẩm màu — không chất bảo quản độc hại</span>
+      <span>Đối tác phân phối B2B — hợp tác ngay hôm nay</span>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="trust-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Tại Sao Chọn Chúng Tôi</div>
+      <h2 class="section-title">Khang Phát — <span class="gold">Cam Kết Từ Tâm</span></h2>
+      <p class="section-desc">Mỗi chai gia vị là kết tinh từ nguyên liệu tươi sạch, công thức gia truyền và quy trình kiểm soát chất lượng nghiêm ngặt</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card reveal">
+        <div class="trust-icon">🌿</div>
+        <div class="trust-title">Nguyên Liệu Tươi Sạch</div>
+        <div class="trust-text">100% nguyên liệu chọn lọc từ vùng nông sản sạch, không sử dụng chất bảo quản độc hại</div>
+      </div>
+      <div class="trust-card reveal">
+        <div class="trust-icon">🏆</div>
+        <div class="trust-title">Chất Lượng Tiêu Chuẩn</div>
+        <div class="trust-text">Sản xuất theo tiêu chuẩn VSATTP — kiểm định bởi cơ quan nhà nước có thẩm quyền</div>
+      </div>
+      <div class="trust-card reveal">
+        <div class="trust-icon">⚡</div>
+        <div class="trust-title">Tiện Lợi Tối Đa</div>
+        <div class="trust-text">Dùng ngay — không cần pha chế phức tạp. Tiết kiệm thời gian, giữ nguyên hương vị truyền thống</div>
+      </div>
+      <div class="trust-card reveal">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-title">Giao Hàng Toàn Quốc</div>
+        <div class="trust-text">Đặt hàng hôm nay — nhận hàng ngay ngày mai. Đóng gói cẩn thận, đảm bảo an toàn</div>
+      </div>
+      <div class="trust-card reveal">
+        <div class="trust-icon">💎</div>
+        <div class="trust-title">Hương Vị Đậm Đà</div>
+        <div class="trust-text">Công thức được nghiên cứu kỹ lưỡng — cân bằng hoàn hảo giữa cay, mặn, ngọt, chua</div>
+      </div>
+      <div class="trust-card reveal">
+        <div class="trust-icon">🤝</div>
+        <div class="trust-title">Hỗ Trợ Tận Tình</div>
+        <div class="trust-text">Đội ngũ tư vấn 7 ngày/tuần. Hỗ trợ B2B & B2C chuyên nghiệp, nhanh chóng</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM/SOLUTION -->
+<section id="problem">
+  <div class="problem-inner">
+    <div class="problem-image-wrap reveal-left">
+      <img src="z7478906290813_9e921d0d218e2fee8d5dfb2b64e293b1.jpg" alt="Bộ sản phẩm Khang Phát">
+      <div class="problem-badge">Bộ quà<br><strong style="font-size:1.5rem">BEST</strong><br>SELLER</div>
+    </div>
+    <div class="problem-content reveal-right">
+      <div class="section-eyebrow" style="justify-content:flex-start">Giải Pháp Bếp Thông Minh</div>
+      <h2 class="section-title" style="text-align:left">Nấu Ăn Ngon Hơn,<br><span class="gold">Nhanh Hơn, Dễ Hơn</span></h2>
+      <p style="color:#666;line-height:1.8;margin-bottom:8px">Bạn bận rộn mà vẫn muốn bữa ăn ngon? Khang Phát có đúng thứ bạn cần:</p>
+      <ul class="problem-list">
+        <li>
+          <div class="icon">🥩</div>
+          <div><strong>Gia vị ướp bò né, bò khô, mực né</strong> — chuẩn vị Sài Gòn, chỉ cần ướp 15 phút là nướng được ngay</div>
+        </li>
+        <li>
+          <div class="icon">🍲</div>
+          <div><strong>Sốt lẩu bò, sốt Thái, sa tế cay</strong> — nấu lẩu cả nồi chỉ trong 10 phút, đủ phục vụ cả gia đình</div>
+        </li>
+        <li>
+          <div class="icon">🍋</div>
+          <div><strong>Muối chanh, muối ớt, nước chấm</strong> — chấm gì cũng ngon, từ hải sản đến trái cây đều đỉnh</div>
+        </li>
+        <li>
+          <div class="icon">🎁</div>
+          <div><strong>Hộp quà Nêm Nếm Yêu Thương</strong> — quà tặng độc đáo, ý nghĩa cho mọi dịp: Tết, sinh nhật, hội nghị</div>
+        </li>
+      </ul>
+      <a href="#featured" class="btn-primary" style="margin-top:8px;display:inline-flex">🛒 Mua Ngay — Giá Tốt Nhất</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section id="featured">
+  <div class="featured-inner">
+    <div class="section-header reveal">
+      <div class="gold-divider"><span>✦</span></div>
+      <div class="section-eyebrow">Sản Phẩm Nổi Bật</div>
+      <h2 class="section-title">Bestseller <span class="gold">Được Yêu Thích Nhất</span></h2>
+      <p class="section-desc">Hơn 50 dòng sản phẩm — dưới đây là những sản phẩm bán chạy nhất, được hàng nghìn khách hàng tin dùng mỗi tháng</p>
+    </div>
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <div class="product-card reveal">
+        <div class="product-card-badge hot">🔥 Bán Chạy</div>
+        <div class="product-img-wrap">
+          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/gia-vi-uop-bo-ne.jpg"
+               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
+               alt="Gia vị ướp bò né">
+          <div class="product-shimmer"></div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Gia Vị Ướp</div>
+          <div class="product-name">Gia Vị Ướp Bò Né Đặc Biệt</div>
+          <div class="product-desc">Chuẩn vị Sài Gòn, thơm đặc trưng, ướp 15 phút là nướng ngay</div>
+          <div class="product-footer">
+            <div class="product-price">Liên hệ giá</div>
+            <a href="#contact" class="btn-buy">Đặt Hàng</a>
+          </div>
+        </div>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card reveal">
+        <div class="product-card-badge hot">🔥 Bán Chạy</div>
+        <div class="product-img-wrap">
+          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/muoi-chanh.jpg"
+               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
+               alt="Muối chanh">
+          <div class="product-shimmer"></div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Muối Các Loại</div>
+          <div class="product-name">Muối Chanh Tươi KP</div>
+          <div class="product-desc">Chua cay dịu, dùng chấm hải sản, trái cây — hương vị vô địch</div>
+          <div class="product-footer">
+            <div class="product-price">Liên hệ giá</div>
+            <a href="#contact" class="btn-buy">Đặt Hàng</a>
+          </div>
+        </div>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card reveal">
+        <div class="product-card-badge new">✨ Mới</div>
+        <div class="product-img-wrap">
+          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/sot-lau-bo.jpg"
+               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
+               alt="Sốt lẩu bò">
+          <div class="product-shimmer"></div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Nước Sốt</div>
+          <div class="product-name">Sốt Lẩu Bò Đậm Đà</div>
+          <div class="product-desc">Nấu lẩu bò ngon như nhà hàng, chỉ cần 10 phút cho cả nồi</div>
+          <div class="product-footer">
+            <div class="product-price">Liên hệ giá</div>
+            <a href="#contact" class="btn-buy">Đặt Hàng</a>
+          </div>
+        </div>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-card reveal">
+        <div class="product-card-badge hot">💎 Premium</div>
+        <div class="product-img-wrap">
+          <img src="z7478906290813_9e921d0d218e2fee8d5dfb2b64e293b1.jpg" alt="Bộ gia vị đa dạng">
+          <div class="product-shimmer"></div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Bộ Sưu Tập</div>
+          <div class="product-name">Combo Gia Vị Đầy Đủ</div>
+          <div class="product-desc">Bò né, bò khô, mực né, nước chấm tỏi, sốt chanh dây — combo tiết kiệm</div>
+          <div class="product-footer">
+            <div class="product-price">Tiết kiệm 20%</div>
+            <a href="#contact" class="btn-buy">Đặt Hàng</a>
+          </div>
+        </div>
+      </div>
+      <!-- Product 5 -->
+      <div class="product-card reveal">
+        <div class="product-card-badge">🌶️ Cay Đặc</div>
+        <div class="product-img-wrap">
+          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/sa-te-cay.jpg"
+               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
+               alt="Sa tế cay">
+          <div class="product-shimmer"></div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Sa Tế</div>
+          <div class="product-name">Sa Tế Tôm Cay Đặc Biệt</div>
+          <div class="product-desc">Cay chuẩn, thơm đặc trưng, dùng xào, nấu lẩu hay chấm đều ngon</div>
+          <div class="product-footer">
+            <div class="product-price">Liên hệ giá</div>
+            <a href="#contact" class="btn-buy">Đặt Hàng</a>
+          </div>
+        </div>
+      </div>
+      <!-- Product 6 -->
+      <div class="product-card reveal">
+        <div class="product-card-badge new">🥗 Chay</div>
+        <div class="product-img-wrap">
+          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/nuoc-mam-chay.jpg"
+               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
+               alt="Nước mắm chay">
+          <div class="product-shimmer"></div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Nước Chấm Chay</div>
+          <div class="product-name">Nước Mắm Chay KP</div>
+          <div class="product-desc">Hương vị đậm đà dành riêng cho thực đơn chay — lành mạnh, ngon miệng</div>
+          <div class="product-footer">
+            <div class="product-price">Liên hệ giá</div>
+            <a href="#contact" class="btn-buy">Đặt Hàng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <a href="#contact" class="btn-primary" style="font-size:1rem">📋 Xem Toàn Bộ Danh Mục Sản Phẩm</a>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE / PROMO BANNERS -->
+<section id="showcase">
+  <div class="showcase-inner">
+    <div class="section-header reveal">
+      <div class="gold-divider"><span>🔥</span></div>
+      <div class="section-eyebrow">Ưu Đãi & Sản Phẩm Hot</div>
+      <h2 class="section-title">Bộ Sưu Tập <span class="gold">Nổi Bật Nhất</span></h2>
+      <p class="section-desc">Những dòng sản phẩm được săn đón nhiều nhất — hình ảnh thật 100%, hương vị đậm đà khó quên. Nhấn vào banner để đặt hàng ngay!</p>
+    </div>
+    <div class="showcase-feature">
+      <a href="#contact" class="showcase-card ratio-wide reveal-left">
+        <img src="622208124_1352051566947587_8750752031219707521_n.jpg" alt="Gia vị ngon - Thương hiệu vững, niềm tin bền">
+        <div class="showcase-shine"></div>
+        <div class="showcase-cta">🛒 Khám phá trọn bộ gia vị Khang Phát</div>
+      </a>
+      <a href="#contact" class="showcase-card ratio-wide reveal-right">
+        <img src="530415293_1210986064387472_1692101751528268707_n.jpg" alt="Nước mắm chay - Ngon đến giọt cuối cùng">
+        <div class="showcase-shine"></div>
+        <div class="showcase-cta">🛒 Đặt Nước Mắm Chay ngay</div>
+      </a>
+    </div>
+    <div class="showcase-grid">
+      <a href="#contact" class="showcase-card ratio-square reveal">
+        <img src="623275341_1352622903557120_1781434247137699066_n.jpg" alt="Muối Chanh Ớt - Gia vị nhỏ giữ chân khách hàng">
+        <div class="showcase-shine"></div>
+        <div class="showcase-cta">🛒 Đặt Muối Chanh Ớt</div>
+      </a>
+      <a href="#contact" class="showcase-card ratio-square reveal">
+        <img src="532561770_1212909974195081_2574850374142732072_n.jpg" alt="Muối Ớt Trái Cây Khang Phát">
+        <div class="showcase-shine"></div>
+        <div class="showcase-cta">🛒 Đặt Muối Ớt Trái Cây</div>
+      </a>
+      <a href="#contact" class="showcase-card ratio-square reveal">
+        <img src="552218288_1243459787806766_368681344540501754_n.jpg" alt="Tương Bò Kho Chay - Đậm đà khó quên">
+        <div class="showcase-shine"></div>
+        <div class="showcase-cta">🛒 Đặt Tương Bò Kho Chay</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-images reveal-left">
+      <img src="z7724372513092_c1cd8cda8e8348c10b222383e372d009.jpg" alt="Team Khang Phát tại hội chợ" style="height:320px">
+      <img src="z7724326907433_14280eb2d931cbb243606b2d97596679.jpg" alt="Gian hàng Khang Phát">
+      <img src="z7724327235013_45be07f298ad2afbfd99f57cbbb1df2e.jpg" alt="Sản phẩm trưng bày">
+      <div class="about-year">
+        <strong>5+</strong>
+        Năm<br>Kinh Nghiệm
+      </div>
+    </div>
+    <div class="about-content reveal-right">
+      <div class="section-eyebrow" style="justify-content:flex-start">Câu Chuyện Thương Hiệu</div>
+      <h2 class="section-title" style="text-align:left">Từ Bếp Gia Đình<br><span class="gold">Đến Bàn Ăn Triệu Người</span></h2>
+      <p class="about-story">Khang Phát Foods được thành lập từ niềm đam mê ẩm thực và mong muốn mang hương vị truyền thống Việt Nam đến mọi bếp gia đình. Chúng tôi tin rằng: một bữa ăn ngon không cần phức tạp — chỉ cần đúng gia vị.</p>
+      <p class="about-story">Từ những công thức gia vị được nghiên cứu kỹ lưỡng, Khang Phát đã và đang góp phần tạo nên tinh hoa trong ẩm thực Việt. Thương hiệu đã nhanh chóng vươn xa chinh phục hàng triệu người tiêu dùng, trở thành sự lựa chọn hàng đầu của nhiều chuyên gia ẩm thực.</p>
+      <div class="about-milestones">
+        <div class="milestone">
+          <strong>50+</strong>
+          <span>Dòng sản phẩm gia vị</span>
+        </div>
+        <div class="milestone">
+          <strong>10K+</strong>
+          <span>Khách hàng trung thành</span>
+        </div>
+        <div class="milestone">
+          <strong>63</strong>
+          <span>Tỉnh thành phân phối</span>
+        </div>
+        <div class="milestone">
+          <strong>ISO</strong>
+          <span>Tiêu chuẩn chất lượng</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="cat-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Danh Mục Sản Phẩm</div>
+      <h2 class="section-title">Đa Dạng Dòng <span class="gold">Gia Vị Khang Phát</span></h2>
+      <p class="section-desc" style="color:rgba(255,255,255,.7)">Từ gia vị ướp đến nước sốt, muối tươi — chúng tôi phủ sóng mọi nhu cầu nấu ăn của bạn</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card reveal">
+        <span class="cat-icon">🥩</span>
+        <div class="cat-name">Gia Vị Ướp</div>
+        <div class="cat-count">Bò né, bò khô, mực né...</div>
+      </div>
+      <div class="cat-card reveal">
+        <span class="cat-icon">🍅</span>
+        <div class="cat-name">Nước Sốt</div>
+        <div class="cat-count">Sốt lẩu, sốt Thái, sốt cà...</div>
+      </div>
+      <div class="cat-card reveal">
+        <span class="cat-icon">🌶️</span>
+        <div class="cat-name">Sa Tế</div>
+        <div class="cat-count">Sa tế tôm, sa tế cay...</div>
+      </div>
+      <div class="cat-card reveal">
+        <span class="cat-icon">🍋</span>
+        <div class="cat-name">Muối Tươi</div>
+        <div class="cat-count">Muối chanh, muối ớt, muối tôm...</div>
+      </div>
+      <div class="cat-card reveal">
+        <span class="cat-icon">🫙</span>
+        <div class="cat-name">Nước Màu</div>
+        <div class="cat-count">Nước màu kho, caramel...</div>
+      </div>
+      <div class="cat-card reveal">
+        <span class="cat-icon">🫒</span>
+        <div class="cat-name">Dầu Ăn</div>
+        <div class="cat-count">Dầu hào, dầu điều...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT BOXES -->
+<section id="gifts">
+  <div class="gifts-inner">
+    <div class="section-header reveal">
+      <div class="gold-divider"><span>🎁</span></div>
+      <div class="section-eyebrow">Quà Tặng Đặc Biệt</div>
+      <h2 class="section-title">Hộp Quà <span class="gold">"Nêm Nếm Yêu Thương"</span></h2>
+      <p class="section-desc">Món quà ý nghĩa, khác biệt — dành tặng người thân, khách hàng, đối tác trong mọi dịp đặc biệt</p>
+    </div>
+    <div class="gifts-grid reveal">
+      <div class="gift-card">
+        <img src="z7478901227652_9058427808164fa74ec671e93b2cbfc8.jpg" alt="Hộp quà đỏ Nêm Nếm Yêu Thương">
+        <div class="gift-overlay">
+          <h3>Hộp Quà Đỏ — Phiên Bản Tết</h3>
+          <p>Sang trọng, ấm áp — hoàn hảo cho quà tặng dịp Tết, khai trương, sinh nhật</p>
+          <a href="#contact" class="btn-primary">Đặt Hàng Số Lượng Lớn</a>
+        </div>
+      </div>
+      <div class="gift-card">
+        <img src="z7478902220917_a988d385547db8148539144d21a17313.jpg" alt="Hộp quà xanh Nêm Nếm Yêu Thương">
+        <div class="gift-overlay">
+          <h3>Hộp Quà Xanh — Phiên Bản Classic</h3>
+          <p>Tươi sáng, hiện đại — phù hợp quà doanh nghiệp, hội nghị, sự kiện</p>
+          <a href="#contact" class="btn-primary">Đặt Hàng Số Lượng Lớn</a>
+        </div>
+      </div>
+    </div>
+    <div style="background:linear-gradient(135deg,var(--green-pale),rgba(212,160,23,.08));border-radius:20px;padding:32px 40px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px" class="reveal">
+      <div>
+        <div style="font-weight:800;color:var(--green-dark);font-size:1.1rem;margin-bottom:6px">🎁 Đặt Hàng Quà Tặng Số Lượng Lớn</div>
+        <div style="color:#666;font-size:.9rem">Từ 10 hộp trở lên — được tư vấn thiết kế và in logo doanh nghiệp miễn phí</div>
+      </div>
+      <a href="#contact" class="btn-primary">Liên Hệ Tư Vấn Ngay →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="benefits-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Lợi Ích Vượt Trội</div>
+      <h2 class="section-title">Vì Sao <span class="gold">Hàng Nghìn Bếp</span><br>Chọn Khang Phát?</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">🌿</div>
+        <div class="benefit-text">
+          <h4>Nguyên Liệu 100% Tự Nhiên</h4>
+          <p>Không phẩm màu tổng hợp, không bột ngọt quá mức, không chất bảo quản độc hại. An toàn cho cả trẻ em</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">⏱️</div>
+        <div class="benefit-text">
+          <h4>Tiết Kiệm Thời Gian Nấu Nướng</h4>
+          <p>Ướp 15 phút — nướng ngay. Nấu lẩu 10 phút — đủ nồi. Không cần cân đo gia vị phức tạp</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">💰</div>
+        <div class="benefit-text">
+          <h4>Giá Tốt — Chất Lượng Cao</h4>
+          <p>Giá hợp lý, phù hợp hộ gia đình và kinh doanh. Mua số lượng lớn được chiết khấu đặc biệt</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">🍴</div>
+        <div class="benefit-text">
+          <h4>Hương Vị Nhất Quán Mỗi Lần Dùng</h4>
+          <p>Công thức chuẩn hóa đảm bảo mỗi mẻ sản xuất đều đạt cùng một hương vị đặc trưng</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">📦</div>
+        <div class="benefit-text">
+          <h4>Bao Bì Hiện Đại, Dễ Bảo Quản</h4>
+          <p>Thiết kế tiện dụng, dễ dùng, dễ bảo quản. Hạn sử dụng dài — phù hợp tích trữ gia đình</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-icon">🏅</div>
+        <div class="benefit-text">
+          <h4>Được Chứng Nhận An Toàn Thực Phẩm</h4>
+          <p>Giấy phép VSATTP đầy đủ. Sản xuất theo tiêu chuẩn GMP, đang hướng tới ISO 22000</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="test-inner">
+    <div class="section-header reveal">
+      <div class="gold-divider"><span>⭐</span></div>
+      <div class="section-eyebrow">Khách Hàng Nói Gì</div>
+      <h2 class="section-title"><span class="gold">Hàng Nghìn Bếp</span> Đã Tin Dùng</h2>
+      <p class="section-desc">Phản hồi thực từ những khách hàng đang dùng sản phẩm Khang Phát mỗi ngày</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Muối chanh Khang Phát ngon thật sự! Chấm hải sản, chấm gỏi gà đều đỉnh. Cả nhà em đều ghiền, tuần nào cũng mua. Chất lượng ổn định, giao hàng nhanh!"</p>
+        <div class="test-author">
+          <div class="test-avatar">LH</div>
+          <div>
+            <div class="test-name">Chị Lan Hương</div>
+            <div class="test-location">TP.HCM — Nội trợ</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Mình dùng gia vị ướp bò né của KP để bán bò né xe tải, khách khen hương vị đúng chuẩn Sài Gòn. Giá sỉ hợp lý, giao hàng đúng hẹn. Đã order 3 tháng liên tiếp!"</p>
+        <div class="test-author">
+          <div class="test-avatar">MT</div>
+          <div>
+            <div class="test-name">Anh Minh Tuấn</div>
+            <div class="test-location">Bình Dương — Chủ xe bò né</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Mua hộp quà Nêm Nếm Yêu Thương tặng đối tác — ai cũng thích! Ý tưởng quà tặng độc đáo, khác hẳn bánh kẹo thông thường. Sẽ tiếp tục đặt cho sự kiện tới."</p>
+        <div class="test-author">
+          <div class="test-avatar">TN</div>
+          <div>
+            <div class="test-name">Chị Thu Ngân</div>
+            <div class="test-location">Đà Nẵng — Giám đốc doanh nghiệp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Hình Ảnh Thực Tế</div>
+      <h2 class="section-title">Khang Phát — <span class="gold">Hiện Diện Khắp Nơi</span></h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg" alt="Bộ sản phẩm đầy đủ Khang Phát">
+        <div class="gallery-item-overlay"><span>Dòng sản phẩm đầy đủ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="z7724326907433_14280eb2d931cbb243606b2d97596679.jpg" alt="Gian hàng hội chợ">
+        <div class="gallery-item-overlay"><span>Gian hàng tại hội chợ</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="z7478906290813_9e921d0d218e2fee8d5dfb2b64e293b1.jpg" alt="Bộ quà tặng">
+        <div class="gallery-item-overlay"><span>Bộ quà tặng đặc biệt</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="z7724327235013_45be07f298ad2afbfd99f57cbbb1df2e.jpg" alt="Trưng bày sản phẩm">
+        <div class="gallery-item-overlay"><span>Trưng bày chuyên nghiệp</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="z7724372513092_c1cd8cda8e8348c10b222383e372d009.jpg" alt="Team Khang Phát">
+        <div class="gallery-item-overlay"><span>Đội ngũ Khang Phát</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="487824643_1096901392462607_3194233621195643363_n.jpg" alt="Gian hàng Khang Phát - Mua 2 Tặng 1">
+        <div class="gallery-item-overlay"><span>Gian hàng — ưu đãi Mua 2 Tặng 1</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="487456168_1096301579189255_6633584981614200042_n.jpg" alt="Gian hàng Khang Phát - Chồng nấu vợ yêu">
+        <div class="gallery-item-overlay"><span>Gian hàng — Chồng nấu vợ yêu</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section id="guarantee">
+  <div class="guarantee-inner">
+    <div class="section-eyebrow" style="color:var(--gold-light);justify-content:center">Cam Kết Chất Lượng</div>
+    <h2 class="section-title" style="color:#fff;margin-bottom:12px">Chúng Tôi Cam Kết —<br><span style="color:var(--gold-light)">Bạn Yên Tâm Mua Sắm</span></h2>
+    <div class="guarantee-badge reveal">
+      <span class="g-icon">🛡️</span>
+      <p>
+        <strong>Bảo Đảm Hoàn Tiền 100%</strong>
+        Nếu sản phẩm không đúng mô tả hoặc bị hỏng trong quá trình vận chuyển — chúng tôi hoàn tiền hoặc gửi lại ngay lập tức. Không hỏi, không phức tạp.
+      </p>
+    </div>
+    <div class="cert-list reveal">
+      <div class="cert-item">
+        <strong>VSATTP</strong>
+        <span>Vệ sinh an toàn thực phẩm</span>
+      </div>
+      <div class="cert-item">
+        <strong>GMP</strong>
+        <span>Thực hành sản xuất tốt</span>
+      </div>
+      <div class="cert-item">
+        <strong>ISO 22000</strong>
+        <span>Đang hướng tới 2026</span>
+      </div>
+      <div class="cert-item">
+        <strong>HACCP</strong>
+        <span>Phân tích mối nguy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="section-eyebrow" style="justify-content:center">Đừng Bỏ Lỡ</div>
+    <h2 class="section-title reveal">Hàng Nghìn Bếp Đã Chọn<br><span class="gold">Khang Phát — Đến Lượt Bạn!</span></h2>
+    <p class="section-desc reveal">Đặt hàng ngay hôm nay để nhận ưu đãi đặc biệt — giao hàng nhanh, thanh toán linh hoạt, hỗ trợ tận tâm 7 ngày/tuần</p>
+    <div class="cta-actions reveal">
+      <a href="#contact" class="btn-primary" style="font-size:1.05rem;padding:18px 44px">🛒 Đặt Hàng Ngay — Nhận Ngay Ưu Đãi</a>
+      <a href="tel:0905000000" class="btn-secondary" style="font-size:1.05rem;padding:17px 40px;border-color:var(--green-light);color:var(--green-dark)">📞 Gọi Tư Vấn Miễn Phí</a>
+    </div>
+    <div class="cta-urgency reveal">⏰ Ưu đãi đặc biệt chỉ còn hạn đến cuối tháng 6/2026 — Đặt ngay trước khi hết!</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Câu Hỏi Thường Gặp</div>
+      <h2 class="section-title">Giải Đáp <span class="gold">Thắc Mắc</span></h2>
+    </div>
+    <div class="faq-item open">
+      <div class="faq-question">Sản phẩm Khang Phát có an toàn cho trẻ em không?</div>
+      <div class="faq-answer">Có. Sản phẩm Khang Phát sử dụng nguyên liệu tự nhiên, không phẩm màu tổng hợp độc hại, không chất bảo quản cấm. Tuy nhiên với trẻ dưới 3 tuổi, bố mẹ nên sử dụng lượng ít và chọn dòng không cay.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Hạn sử dụng sản phẩm bao lâu?</div>
+      <div class="faq-answer">Tùy từng dòng sản phẩm: thông thường từ 12–18 tháng kể từ ngày sản xuất. Sau khi mở nắp, bảo quản trong tủ lạnh và dùng trong vòng 30 ngày để đảm bảo chất lượng tốt nhất.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Khang Phát có chính sách đại lý, nhà phân phối không?</div>
+      <div class="faq-answer">Có! Khang Phát đang mở rộng hệ thống đại lý toàn quốc với chính sách chiết khấu hấp dẫn (từ 15–30%), hỗ trợ marketing, cung cấp tài liệu bán hàng. Liên hệ trực tiếp với chúng tôi để được tư vấn cụ thể.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Đặt hàng tối thiểu bao nhiêu? Giao hàng bao lâu?</div>
+      <div class="faq-answer">Không có đơn hàng tối thiểu cho B2C. Đơn B2B/đại lý từ 50 sản phẩm. Giao hàng nội thành 1–2 ngày, tỉnh thành 2–4 ngày qua các đối tác vận chuyển uy tín.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Có thể in logo doanh nghiệp lên hộp quà không?</div>
+      <div class="faq-answer">Được! Dịch vụ in logo, thiệp chúc mừng theo yêu cầu có sẵn cho đơn từ 20 hộp trở lên. Liên hệ sớm để chúng tôi sắp xếp sản xuất đúng tiến độ sự kiện của bạn.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-eyebrow" style="color:var(--gold-light);justify-content:flex-start;margin-bottom:12px">Liên Hệ & Đặt Hàng</div>
+      <div class="contact-info">
+        <h2>Kết Nối<br>Với Chúng Tôi</h2>
+        <p>Đội ngũ Khang Phát sẵn sàng hỗ trợ bạn 7 ngày/tuần — từ tư vấn sản phẩm, báo giá đến hỗ trợ sau mua hàng.</p>
+        <div class="contact-detail">
+          <div class="icon">🏢</div>
+          <div>Công Ty TNHH SX TM Thực Phẩm Khang Phát<br><span style="color:rgba(255,255,255,.55);font-size:.82rem">TP. Hồ Chí Minh, Việt Nam</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">📞</div>
+          <div>0905.xxx.xxx<br><span style="color:rgba(255,255,255,.55);font-size:.82rem">Hotline (8h–21h, Thứ 2–CN)</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">📧</div>
+          <div>info@khangphatfoods.com</div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">🌐</div>
+          <div>khangphatfoods.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal-right">
+      <h3 style="color:#fff;margin-bottom:24px;font-size:1.2rem;font-weight:800">Gửi Yêu Cầu Báo Giá / Đặt Hàng</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Họ và tên *</label>
+          <input type="text" placeholder="Nguyễn Văn A">
+        </div>
+        <div class="form-group">
+          <label>Số điện thoại *</label>
+          <input type="tel" placeholder="090x xxx xxx">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label>Bạn là</label>
+          <select>
+            <option>Khách lẻ (B2C)</option>
+            <option>Nhà phân phối / Đại lý</option>
+            <option>Siêu thị / Chuỗi cửa hàng</option>
+            <option>Nhà hàng / Quán ăn</option>
+            <option>Đặt hộp quà số lượng lớn</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:16px">
+        <label>Sản phẩm quan tâm / Yêu cầu</label>
+        <textarea rows="4" placeholder="Ví dụ: Cần báo giá sỉ 100 chai muối chanh, 50 hộp quà tặng tết..."></textarea>
+      </div>
+      <button class="form-submit" onclick="alert('Cảm ơn! Đội ngũ Khang Phát sẽ liên hệ bạn trong vòng 2 giờ làm việc. ✅')">
+        📨 Gửi Yêu Cầu — Nhận Báo Giá Trong 2h
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text"><span>Khang Phát</span> Foods</div>
+        <p>Gia vị hoàn chỉnh & tiện lợi — sốt chấm, sốt ướp, gia vị nấu lẩu. Sản xuất theo tiêu chuẩn VSATTP, hướng tới ISO 22000.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">yt</a>
+          <a href="#" class="social-btn">tk</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Sản Phẩm</h4>
+        <ul>
+          <li><a href="#">Gia vị ướp các loại</a></li>
+          <li><a href="#">Nước sốt các loại</a></li>
+          <li><a href="#">Sa tế cay</a></li>
+          <li><a href="#">Muối tươi</a></li>
+          <li><a href="#">Nước màu</a></li>
+          <li><a href="#">Hộp quà tặng</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Về Chúng Tôi</h4>
+        <ul>
+          <li><a href="#">Giới thiệu</a></li>
+          <li><a href="#">Câu chuyện thương hiệu</a></li>
+          <li><a href="#">Quy trình sản xuất</a></li>
+          <li><a href="#">Chứng nhận chất lượng</a></li>
+          <li><a href="#">Cơ hội hợp tác</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Chính Sách</h4>
+        <ul>
+          <li><a href="#">Chính sách đổi trả</a></li>
+          <li><a href="#">Chính sách vận chuyển</a></li>
+          <li><a href="#">Chính sách đại lý</a></li>
+          <li><a href="#">Bảo mật thông tin</a></li>
+          <li><a href="#">Điều khoản sử dụng</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Khang Phát Foods. Tất cả quyền được bảo lưu. | ĐKKD: xxxxxxxxxx</div>
+      <div class="footer-bottom-links">
+        <a href="#">Bảo Mật</a>
+        <a href="#">Điều Khoản</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-btns">
+  <a href="https://zalo.me/0905000000" class="float-btn zalo" title="Chat Zalo">Z<div class="pulse"></div></a>
+  <a href="tel:0905000000" class="float-btn phone" title="Gọi điện">📞</a>
+  <a href="#contact" class="float-btn cart" title="Đặt hàng">🛒</a>
+</div>
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- SCRIPTS -->
+<script>
+// ===== SPARKLE / GLITTER SYSTEM =====
+const canvas = document.getElementById('sparkle-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();
+window.addEventListener('resize',resize);
+
+class Particle{
+  constructor(){this.reset()}
+  reset(){
+    this.x=Math.random()*W;
+    this.y=Math.random()*H;
+    this.size=Math.random()*3+1;
+    this.speedX=(Math.random()-.5)*0.8;
+    this.speedY=Math.random()*-0.8-0.2;
+    this.opacity=Math.random();
+    this.fadeDir=Math.random()>.5?1:-1;
+    this.color=Math.random()>.5?
+      `rgba(212,160,23,${this.opacity})`:
+      `rgba(27,111,58,${this.opacity})`;
+    this.life=Math.random()*120+60;
+    this.age=0;
+  }
+  update(){
+    this.x+=this.speedX;
+    this.y+=this.speedY;
+    this.age++;
+    this.opacity+=this.fadeDir*0.015;
+    if(this.opacity>1||this.opacity<0)this.fadeDir*=-1;
+    if(this.age>this.life||this.x<0||this.x>W||this.y<0)this.reset();
+  }
+  draw(){
+    ctx.save();
+    ctx.globalAlpha=Math.max(0,this.opacity);
+    // Draw star sparkle
+    const s=this.size;
+    ctx.fillStyle=this.color;
+    ctx.beginPath();
+    for(let i=0;i<4;i++){
+      const angle=i*Math.PI/2;
+      ctx.lineTo(this.x+Math.cos(angle)*s*3,this.y+Math.sin(angle)*s*3);
+      ctx.lineTo(this.x+Math.cos(angle+Math.PI/4)*s,this.y+Math.sin(angle+Math.PI/4)*s);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+// Init particles
+for(let i=0;i<80;i++){
+  const p=new Particle();
+  p.age=Math.random()*p.life;
+  particles.push(p);
+}
+
+function animate(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{p.update();p.draw()});
+  requestAnimationFrame(animate);
+}
+animate();
+
+// Mouse sparkle burst
+document.addEventListener('mousemove',e=>{
+  if(Math.random()>0.85){
+    const p=new Particle();
+    p.x=e.clientX;p.y=e.clientY;
+    p.size=Math.random()*2+1;
+    p.speedX=(Math.random()-.5)*3;
+    p.speedY=(Math.random()-.5)*3;
+    p.life=40;
+    particles.push(p);
+    if(particles.length>150)particles.shift();
+  }
+});
+
+// ===== NAVBAR SCROLL =====
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>50)navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+  // Scroll top button
+  const st=document.getElementById('scroll-top');
+  if(window.scrollY>400)st.classList.add('visible');
+  else st.classList.remove('visible');
+});
+
+// ===== SMOOTH SCROLL LINKS =====
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+
+// ===== SCROLL REVEAL =====
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:.15,rootMargin:'0px 0px -60px 0px'});
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>observer.observe(el));
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-question').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(el){
+  const text=el.textContent;
+  const num=parseInt(text.replace(/\D/g,''));
+  const suffix=text.replace(/[\d,]/g,'').trim();
+  let current=0;
+  const step=num/60;
+  const interval=setInterval(()=>{
+    current+=step;
+    if(current>=num){current=num;clearInterval(interval)}
+    el.textContent=Math.floor(current).toLocaleString('vi-VN')+suffix;
+  },25);
+}
+const statsObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.stat-num').forEach(animateCounter);
+      statsObserver.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+const heroStats=document.querySelector('.hero-stats');
+if(heroStats)statsObserver.observe(heroStats);
+
+// ===== ACTIVE NAV ON SCROLL =====
+const sections=['hero','trust','featured','about','categories','gifts','testimonials','guarantee','contact'];
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-100)current=id;
+  });
+  document.querySelectorAll('.nav-menu a').forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')==='#'+current);
+  });
+});
+
+// ===== GOLDEN SHIMMER ON PRODUCT CARDS =====
+document.querySelectorAll('.product-card').forEach(card=>{
+  card.addEventListener('mouseenter',()=>{
+    card.style.background='linear-gradient(135deg,#fff,rgba(212,160,23,.05),#fff)';
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.background='#fff';
+  });
+});
+
+console.log('🌟 Khang Phát Foods — Website loaded successfully!');
+</script>
+</body>
+</html>
