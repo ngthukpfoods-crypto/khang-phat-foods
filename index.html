@@ -135,8 +135,8 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .product-card-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--red);color:#fff;padding:5px 12px;border-radius:20px;font-size:.72rem;font-weight:700;text-transform:uppercase}
 .product-card-badge.new{background:var(--green)}
 .product-card-badge.hot{background:var(--red)}
-.product-img-wrap{position:relative;overflow:hidden;height:240px}
-.product-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.product-img-wrap{position:relative;overflow:hidden;height:240px;background:radial-gradient(circle at 50% 40%,#fff,#eef5ee)}
+.product-img-wrap img{width:100%;height:100%;object-fit:contain;padding:16px;transition:transform .6s}
 .product-card:hover .product-img-wrap img{transform:scale(1.1)}
 .product-shimmer{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 50%,rgba(255,255,255,0) 100%);background-size:200% 200%;opacity:0;transition:opacity .3s}
 .product-card:hover .product-shimmer{opacity:1;animation:shimmer 1.5s infinite}
@@ -603,9 +603,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge hot">🔥 Bán Chạy</div>
         <div class="product-img-wrap">
-          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/gia-vi-uop-bo-ne.jpg"
-               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
-               alt="Gia vị ướp bò né">
+          <img src="products/uop-bo-ne-200.jpg" alt="Gia vị ướp bò né Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -622,9 +620,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge hot">🔥 Bán Chạy</div>
         <div class="product-img-wrap">
-          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/muoi-chanh.jpg"
-               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
-               alt="Muối chanh">
+          <img src="products/muoi-chanh-ot.png" alt="Muối chanh ớt đỏ Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -641,9 +637,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge new">✨ Mới</div>
         <div class="product-img-wrap">
-          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/sot-lau-bo.jpg"
-               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
-               alt="Sốt lẩu bò">
+          <img src="products/sot-lau-bo.png" alt="Sốt lẩu bò Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -660,7 +654,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge hot">💎 Premium</div>
         <div class="product-img-wrap">
-          <img src="z7478906290813_9e921d0d218e2fee8d5dfb2b64e293b1.jpg" alt="Bộ gia vị đa dạng">
+          <img src="z7478901227652_9058427808164fa74ec671e93b2cbfc8.jpg" alt="Combo hộp quà gia vị Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -677,9 +671,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge">🌶️ Cay Đặc</div>
         <div class="product-img-wrap">
-          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/sa-te-cay.jpg"
-               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
-               alt="Sa tế cay">
+          <img src="products/sa-te-cay.png" alt="Sa tế cay Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -696,9 +688,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge new">🥗 Chay</div>
         <div class="product-img-wrap">
-          <img src="https://khangphatfoods.com/wp-content/uploads/2023/02/nuoc-mam-chay.jpg"
-               onerror="this.src='z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg'"
-               alt="Nước mắm chay">
+          <img src="products/nuoc-mam-chay-500.png" alt="Nước mắm chay Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -1114,8 +1104,8 @@ footer{background:#0a2e18;padding:60px 40px 30px}
     </div>
     <div class="gallery-grid reveal">
       <div class="gallery-item">
-        <img src="z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg" alt="Bộ sản phẩm đầy đủ Khang Phát">
-        <div class="gallery-item-overlay"><span>Dòng sản phẩm đầy đủ</span></div>
+        <img src="z7478902220917_a988d385547db8148539144d21a17313.jpg" alt="Hộp quà Nêm Nếm Yêu Thương Khang Phát">
+        <div class="gallery-item-overlay"><span>Hộp quà Nêm Nếm Yêu Thương</span></div>
       </div>
       <div class="gallery-item">
         <img src="z7724326907433_14280eb2d931cbb243606b2d97596679.jpg" alt="Gian hàng hội chợ">
