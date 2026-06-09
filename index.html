@@ -184,6 +184,31 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .pcard-btn.call:hover{background:var(--green-dark);transform:scale(1.04)}
 .pcard-btn.zalo{background:#eef4ff;color:#0068ff;border:1px solid #cfe0ff}
 .pcard-btn.zalo:hover{background:#0068ff;color:#fff}
+.pcard-detail-btn{width:100%;margin-bottom:10px;padding:9px;border-radius:10px;border:1.5px solid var(--green);background:#fff;color:var(--green-dark);font-weight:700;font-size:.83rem;cursor:pointer;transition:all .3s}
+.pcard-detail-btn:hover{background:var(--green);color:#fff}
+
+/* ===== PRODUCT MODAL ===== */
+#kp-modal{position:fixed;inset:0;z-index:2000;background:rgba(10,40,20,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:all .3s}
+#kp-modal.open{opacity:1;visibility:visible}
+.kpm-box{background:#fff;border-radius:22px;max-width:880px;width:100%;max-height:88vh;overflow:hidden;display:grid;grid-template-columns:42% 58%;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.4);transform:scale(.94);transition:transform .3s}
+#kp-modal.open .kpm-box{transform:scale(1)}
+.kpm-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(0,0,0,.1);color:#333;font-size:1.5rem;line-height:1;cursor:pointer;z-index:2;transition:all .3s}
+.kpm-close:hover{background:var(--red);color:#fff;transform:rotate(90deg)}
+.kpm-img-wrap{background:radial-gradient(circle at 50% 40%,#fff,#eef5ee);display:flex;align-items:center;justify-content:center;padding:28px}
+.kpm-img-wrap img{max-width:100%;max-height:340px;object-fit:contain;filter:drop-shadow(0 14px 26px rgba(0,0,0,.18))}
+.kpm-content{padding:34px 30px;overflow-y:auto}
+.kpm-badge{display:inline-block;background:var(--green);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.kpm-content h3{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--green-dark);font-size:1.45rem;line-height:1.25;margin-bottom:8px}
+#kpm-price{color:#e8590c;font-weight:700;font-size:.88rem;margin-bottom:14px}
+#kpm-desc{color:#444;line-height:1.7;font-size:.94rem;margin-bottom:18px}
+.kpm-h4{color:var(--green-dark);font-weight:800;font-size:1rem;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--gray)}
+#kpm-detail{list-style:none;margin-bottom:22px}
+#kpm-detail li{padding:7px 0 7px 24px;position:relative;color:#444;line-height:1.55;font-size:.9rem;border-bottom:1px dashed #eee}
+#kpm-detail li:before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+#kpm-detail li strong{color:var(--green-dark)}
+.kpm-actions{display:flex;gap:10px}
+.kpm-actions .pcard-btn{padding:13px 10px;font-size:.9rem}
+@media(max-width:680px){.kpm-box{grid-template-columns:1fr;max-height:92vh}.kpm-img-wrap{padding:18px}.kpm-img-wrap img{max-height:200px}.kpm-content{padding:24px 20px}}
 
 /* ===== ABOUT ===== */
 #about{padding:100px 40px;background:#fff;position:relative;overflow:hidden}
@@ -1326,6 +1351,67 @@ footer{background:#0a2e18;padding:60px 40px 30px}
   <a href="#contact" class="float-btn cart" title="Đặt hàng">🛒</a>
 </div>
 <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div id="kp-modal" role="dialog" aria-modal="true">
+  <div class="kpm-box">
+    <button class="kpm-close" onclick="closeModal()" aria-label="Đóng">×</button>
+    <div class="kpm-img-wrap"><img id="kpm-img" src="" alt=""></div>
+    <div class="kpm-content">
+      <span id="kpm-badge" class="kpm-badge"></span>
+      <h3 id="kpm-name"></h3>
+      <p id="kpm-price">💰 Liên hệ giá tốt — Gọi/Zalo để được báo giá sỉ & lẻ</p>
+      <p id="kpm-desc"></p>
+      <h4 class="kpm-h4">📋 Thông tin chi tiết</h4>
+      <ul id="kpm-detail"></ul>
+      <div class="kpm-actions">
+        <a href="tel:0786715949" class="pcard-btn call">📞 Gọi 0786 715 949</a>
+        <a href="https://zalo.me/0786715949" class="pcard-btn zalo">💬 Nhắn Zalo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="products-data.js"></script>
+<script>
+(function(){
+  var SLUGS=['nuoc-mam-chay-khang-phat-500ml','nuoc-mam-chay-khang-phat-250ml','gia-vi-uop-bo-ne-khang-phat-80g','gia-vi-uop-bo-ne-khang-phat-200g','gia-vi-uop-muc-ne-khang-phat-80g','gia-vi-uop-muc-ne-khang-phat-200g-1','tuong-dau-bo-kho-khang-phat-80g','tuong-dau-bo-kho-khang-phat-200g','sot-uop-do-nuong-mama-cook-200g','sot-lau-bo-khang-phat-250g','sot-lau-thai-sakawa-250g','sa-te-cay-wai-wai-60g-1'];
+  var P=window.KP_PRODUCTS||{};
+  function fmt(s){return (s||'').replace(/\s+:/g,':').replace(/\s+/g,' ').trim();}
+  var cards=document.querySelectorAll('#catalog .pcard');
+  cards.forEach(function(c,i){
+    var slug=SLUGS[i]; if(!slug||!P[slug])return;
+    c.dataset.slug=slug;
+    var body=c.querySelector('.pcard-body'), actions=c.querySelector('.pcard-actions');
+    var b=document.createElement('button');
+    b.className='pcard-detail-btn'; b.type='button'; b.textContent='🔍 Xem chi tiết';
+    b.addEventListener('click',function(){openModal(slug,c);});
+    if(body&&actions) body.insertBefore(b,actions);
+  });
+  window.openModal=function(slug,card){
+    var d=P[slug]; if(!d)return;
+    card=card||document.querySelector('#catalog .pcard[data-slug="'+slug+'"]');
+    document.getElementById('kpm-img').src=card.querySelector('.pcard-img img').src;
+    document.getElementById('kpm-name').textContent=card.querySelector('.pcard-name').textContent;
+    var bg=card.querySelector('.pcard-badge');
+    document.getElementById('kpm-badge').textContent=bg?bg.textContent:'';
+    document.getElementById('kpm-desc').textContent=fmt(d.desc);
+    var rows=fmt(d.detail).split(/\s-\s+/).map(function(r){return r.replace(/^-\s*/,'').trim();}).filter(Boolean);
+    var ul=document.getElementById('kpm-detail'); ul.innerHTML='';
+    rows.forEach(function(r){
+      var li=document.createElement('li'); var ci=r.indexOf(':');
+      if(ci>0&&ci<28){var k=r.slice(0,ci).trim(),v=r.slice(ci+1).trim();var st=document.createElement('strong');st.textContent=k+': ';li.appendChild(st);li.appendChild(document.createTextNode(v));}
+      else li.textContent=r;
+      ul.appendChild(li);
+    });
+    document.getElementById('kp-modal').classList.add('open');
+    document.body.style.overflow='hidden';
+  };
+  window.closeModal=function(){document.getElementById('kp-modal').classList.remove('open');document.body.style.overflow='';};
+  document.getElementById('kp-modal').addEventListener('click',function(e){if(e.target.id==='kp-modal')closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
+</script>
 
 <!-- SCRIPTS -->
 <script>
