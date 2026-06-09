@@ -165,6 +165,26 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .showcase-cta{position:absolute;bottom:0;left:0;right:0;padding:34px 18px 16px;background:linear-gradient(to top,rgba(14,67,33,.95),transparent);color:#fff;font-weight:700;font-size:.92rem;display:flex;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(12px);transition:all .4s}
 .showcase-card:hover .showcase-cta{opacity:1;transform:translateY(0)}
 
+/* ===== CATALOG ===== */
+#catalog{padding:100px 40px;background:linear-gradient(180deg,#fff,var(--gray))}
+.catalog-inner{max-width:1280px;margin:0 auto}
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:24px;margin-top:48px}
+.pcard{background:#fff;border:1px solid #ececec;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:all .4s;box-shadow:0 4px 18px rgba(0,0,0,.05)}
+.pcard:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);border-color:var(--gold)}
+.pcard-img{background:radial-gradient(circle at 50% 40%,#ffffff,#eef5ee);padding:20px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pcard-img img{max-width:100%;max-height:100%;object-fit:contain;transition:transform .5s;filter:drop-shadow(0 10px 18px rgba(0,0,0,.14))}
+.pcard:hover .pcard-img img{transform:scale(1.08) rotate(-1deg)}
+.pcard-badge{position:absolute;top:12px;left:12px;background:var(--green);color:#fff;font-size:.68rem;font-weight:700;padding:4px 11px;border-radius:20px;letter-spacing:.3px;box-shadow:0 3px 10px rgba(27,111,58,.3)}
+.pcard-body{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
+.pcard-name{font-weight:700;color:var(--green-dark);font-size:.98rem;line-height:1.35;margin-bottom:8px;min-height:2.7em}
+.pcard-price{color:#e8590c;font-weight:800;font-size:.88rem;margin-bottom:14px;display:flex;align-items:center;gap:5px}
+.pcard-actions{display:flex;gap:8px;margin-top:auto}
+.pcard-btn{flex:1;text-align:center;padding:10px 6px;border-radius:10px;font-weight:700;font-size:.82rem;text-decoration:none;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:4px}
+.pcard-btn.call{background:var(--green);color:#fff}
+.pcard-btn.call:hover{background:var(--green-dark);transform:scale(1.04)}
+.pcard-btn.zalo{background:#eef4ff;color:#0068ff;border:1px solid #cfe0ff}
+.pcard-btn.zalo:hover{background:#0068ff;color:#fff}
+
 /* ===== ABOUT ===== */
 #about{padding:100px 40px;background:#fff;position:relative;overflow:hidden}
 .about-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -710,6 +730,132 @@ footer{background:#0a2e18;padding:60px 40px 30px}
         <div class="showcase-shine"></div>
         <div class="showcase-cta">🛒 Đặt Tương Bò Kho Chay</div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog">
+  <div class="catalog-inner">
+    <div class="section-header reveal">
+      <div class="gold-divider"><span>🧂</span></div>
+      <div class="section-eyebrow">Danh Mục Đầy Đủ</div>
+      <h2 class="section-title">Tất Cả <span class="gold">Sản Phẩm</span> Khang Phát</h2>
+      <p class="section-desc">Trọn bộ gia vị chủ lực — chất lượng đậm đà, sẵn sàng phục vụ bếp gia đình & bếp kinh doanh. Gọi hoặc nhắn Zalo để được báo giá tốt nhất!</p>
+    </div>
+    <div class="catalog-grid reveal">
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Nước mắm chay</span><img src="products/nuoc-mam-chay-500.png" alt="Nước Mắm Chay Khang Phát 500ml"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Nước Mắm Chay Khang Phát 500ml</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Nước mắm chay</span><img src="products/nuoc-mam-chay-250.png" alt="Nước Mắm Chay Khang Phát 250ml"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Nước Mắm Chay Khang Phát 250ml</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/uop-bo-ne-80.png" alt="Gia Vị Ướp Bò Né Khang Phát 80g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Gia Vị Ướp Bò Né Khang Phát 80g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/uop-bo-ne-200.jpg" alt="Gia Vị Ướp Bò Né Khang Phát 200g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Gia Vị Ướp Bò Né Khang Phát 200g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/uop-muc-ne-80.png" alt="Gia Vị Ướp Mực Né Khang Phát 80g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Gia Vị Ướp Mực Né Khang Phát 80g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/uop-muc-ne-200.jpg" alt="Gia Vị Ướp Mực Né Khang Phát 200g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Gia Vị Ướp Mực Né Khang Phát 200g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Tương dầu</span><img src="products/tuong-bo-kho-80.png" alt="Tương Dầu Bò Kho Khang Phát 80g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Tương Dầu Bò Kho Khang Phát 80g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Tương dầu</span><img src="products/tuong-bo-200.jpg" alt="Tương Dầu Bò Khang Phát 200g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Tương Dầu Bò Khang Phát 200g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/sot-uop-nuong.png" alt="Sốt Ướp Đồ Nướng Mama-Cook 200g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Sốt Ướp Đồ Nướng Mama-Cook 200g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/sot-lau-bo.png" alt="Sốt Lẩu Bò Khang Phát 250g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Sốt Lẩu Bò Khang Phát 250g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/sot-lau-thai.png" alt="Sốt Lẩu Thái Khang Phát 250g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Sốt Lẩu Thái Khang Phát 250g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img"><span class="pcard-badge">Sa tế</span><img src="products/sa-te-cay.png" alt="Sa Tế Cay Khang Phát 60g"></div>
+        <div class="pcard-body">
+          <div class="pcard-name">Sa Tế Cay Khang Phát 60g</div>
+          <div class="pcard-price">💰 Liên hệ giá tốt</div>
+          <div class="pcard-actions"><a href="tel:0786715949" class="pcard-btn call">📞 Gọi</a><a href="https://zalo.me/0909718538" class="pcard-btn zalo">💬 Zalo</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <a href="tel:0786715949" class="btn-primary" style="font-size:1rem">📞 Gọi 0786 715 949 — Tư Vấn & Báo Giá Sỉ/Lẻ</a>
     </div>
   </div>
 </section>
