@@ -135,8 +135,8 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .product-card-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--red);color:#fff;padding:5px 12px;border-radius:20px;font-size:.72rem;font-weight:700;text-transform:uppercase}
 .product-card-badge.new{background:var(--green)}
 .product-card-badge.hot{background:var(--red)}
-.product-img-wrap{position:relative;overflow:hidden;height:240px;background:radial-gradient(circle at 50% 40%,#fff,#eef5ee)}
-.product-img-wrap img{width:100%;height:100%;object-fit:contain;padding:16px;transition:transform .6s}
+.product-img-wrap{position:relative;overflow:hidden;height:240px;background:radial-gradient(circle at 50% 42%,#ffffff 0%,#f4f9f5 100%)}
+.product-img-wrap img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .6s;filter:drop-shadow(0 16px 24px rgba(0,0,0,.18))}
 .product-card:hover .product-img-wrap img{transform:scale(1.1)}
 .product-shimmer{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 50%,rgba(255,255,255,0) 100%);background-size:200% 200%;opacity:0;transition:opacity .3s}
 .product-card:hover .product-shimmer{opacity:1;animation:shimmer 1.5s infinite}
@@ -171,8 +171,8 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:24px;margin-top:48px}
 .pcard{background:#fff;border:1px solid #ececec;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:all .4s;box-shadow:0 4px 18px rgba(0,0,0,.05)}
 .pcard:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);border-color:var(--gold)}
-.pcard-img{background:radial-gradient(circle at 50% 40%,#ffffff,#eef5ee);padding:20px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.pcard-img img{max-width:100%;max-height:100%;object-fit:contain;transition:transform .5s;filter:drop-shadow(0 10px 18px rgba(0,0,0,.14))}
+.pcard-img{background:radial-gradient(circle at 50% 42%,#ffffff 0%,#f4f9f5 100%);padding:14px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pcard-img img{max-width:100%;max-height:100%;object-fit:contain;transition:transform .5s;filter:drop-shadow(0 16px 24px rgba(0,0,0,.18))}
 .pcard:hover .pcard-img img{transform:scale(1.08) rotate(-1deg)}
 .pcard-badge{position:absolute;top:12px;left:12px;background:var(--green);color:#fff;font-size:.68rem;font-weight:700;padding:4px 11px;border-radius:20px;letter-spacing:.3px;box-shadow:0 3px 10px rgba(27,111,58,.3)}
 .pcard-body{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
@@ -603,7 +603,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge hot">🔥 Bán Chạy</div>
         <div class="product-img-wrap">
-          <img src="products/uop-bo-ne-200.jpg" alt="Gia vị ướp bò né Khang Phát" loading="lazy">
+          <img src="products/w-bo-ne.jpg" alt="Gia vị ướp bò né Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -620,7 +620,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge hot">🔥 Bán Chạy</div>
         <div class="product-img-wrap">
-          <img src="products/muoi-chanh-ot.png" alt="Muối chanh ớt đỏ Khang Phát" loading="lazy">
+          <img src="products/w-muoi-chanh-do.jpg" alt="Muối chanh ớt đỏ Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -637,7 +637,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge new">✨ Mới</div>
         <div class="product-img-wrap">
-          <img src="products/sot-lau-bo.png" alt="Sốt lẩu bò Khang Phát" loading="lazy">
+          <img src="products/w-sot-lau-bo.jpg" alt="Sốt lẩu bò Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -671,7 +671,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge">🌶️ Cay Đặc</div>
         <div class="product-img-wrap">
-          <img src="products/sa-te-cay.png" alt="Sa tế cay Khang Phát" loading="lazy">
+          <img src="products/w-sa-te.jpg" alt="Sa tế cay Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -688,7 +688,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="product-card reveal">
         <div class="product-card-badge new">🥗 Chay</div>
         <div class="product-img-wrap">
-          <img src="products/nuoc-mam-chay-500.png" alt="Nước mắm chay Khang Phát" loading="lazy">
+          <img src="products/w-nuoc-mam.jpg" alt="Nước mắm chay Khang Phát" loading="lazy">
           <div class="product-shimmer"></div>
         </div>
         <div class="product-body">
@@ -761,7 +761,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
     <div class="catalog-grid reveal">
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Nước mắm chay</span><img src="products/nuoc-mam-chay-500.png" alt="Nước Mắm Chay Khang Phát 500ml"></div>
+        <div class="pcard-img"><span class="pcard-badge">Nước mắm chay</span><img src="products/w-nuoc-mam.jpg" alt="Nước Mắm Chay Khang Phát 500ml"></div>
         <div class="pcard-body">
           <div class="pcard-name">Nước Mắm Chay Khang Phát 500ml</div>
           <div class="pcard-price">💰 30.000₫</div>
@@ -770,7 +770,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Nước mắm chay</span><img src="products/nuoc-mam-chay-250.png" alt="Nước Mắm Chay Khang Phát 250ml"></div>
+        <div class="pcard-img"><span class="pcard-badge">Nước mắm chay</span><img src="products/w-nuoc-mam-nho.jpg" alt="Nước Mắm Chay Khang Phát 250ml"></div>
         <div class="pcard-body">
           <div class="pcard-name">Nước Mắm Chay Khang Phát 250ml</div>
           <div class="pcard-price">💰 Liên hệ giá tốt</div>
@@ -779,7 +779,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/uop-bo-ne-80.png" alt="Gia Vị Ướp Bò Né Khang Phát 80g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/w-bo-ne.jpg" alt="Gia Vị Ướp Bò Né Khang Phát 80g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Gia Vị Ướp Bò Né Khang Phát 80g</div>
           <div class="pcard-price">💰 Liên hệ giá tốt</div>
@@ -788,7 +788,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/uop-bo-ne-200.jpg" alt="Gia Vị Ướp Bò Né Khang Phát 200g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/w-bo-ne.jpg" alt="Gia Vị Ướp Bò Né Khang Phát 200g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Gia Vị Ướp Bò Né Khang Phát 200g</div>
           <div class="pcard-price">💰 36.000₫</div>
@@ -797,7 +797,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/uop-muc-ne-80.png" alt="Gia Vị Ướp Mực Né Khang Phát 80g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/w-muc-ne.jpg" alt="Gia Vị Ướp Mực Né Khang Phát 80g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Gia Vị Ướp Mực Né Khang Phát 80g</div>
           <div class="pcard-price">💰 Liên hệ giá tốt</div>
@@ -806,7 +806,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/uop-muc-ne-200.jpg" alt="Gia Vị Ướp Mực Né Khang Phát 200g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Gia vị ướp</span><img src="products/w-muc-ne.jpg" alt="Gia Vị Ướp Mực Né Khang Phát 200g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Gia Vị Ướp Mực Né Khang Phát 200g</div>
           <div class="pcard-price">💰 36.000₫</div>
@@ -815,7 +815,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Tương dầu</span><img src="products/tuong-bo-kho-80.png" alt="Tương Dầu Bò Kho Khang Phát 80g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Tương dầu</span><img src="products/w-tuong-bo-kho.jpg" alt="Tương Dầu Bò Kho Khang Phát 80g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Tương Dầu Bò Kho Khang Phát 80g</div>
           <div class="pcard-price">💰 Liên hệ giá tốt</div>
@@ -824,7 +824,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Tương dầu</span><img src="products/tuong-bo-200.jpg" alt="Tương Dầu Bò Khang Phát 200g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Tương dầu</span><img src="products/w-tuong-bo-kho.jpg" alt="Tương Dầu Bò Khang Phát 200g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Tương Dầu Bò Khang Phát 200g</div>
           <div class="pcard-price">💰 16.500₫</div>
@@ -833,7 +833,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/sot-uop-nuong.png" alt="Sốt Ướp Đồ Nướng Mama-Cook 200g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/w-sot-uop-nuong.jpg" alt="Sốt Ướp Đồ Nướng Mama-Cook 200g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Sốt Ướp Đồ Nướng Mama-Cook 200g</div>
           <div class="pcard-price">💰 26.000₫</div>
@@ -842,7 +842,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/sot-lau-bo.png" alt="Sốt Lẩu Bò Khang Phát 250g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/w-sot-lau-bo.jpg" alt="Sốt Lẩu Bò Khang Phát 250g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Sốt Lẩu Bò Khang Phát 250g</div>
           <div class="pcard-price">💰 40.000₫</div>
@@ -851,7 +851,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/sot-lau-thai.png" alt="Sốt Lẩu Thái Khang Phát 250g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Nước sốt</span><img src="products/w-sot-lau-thai.jpg" alt="Sốt Lẩu Thái Khang Phát 250g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Sốt Lẩu Thái Khang Phát 250g</div>
           <div class="pcard-price">💰 23.000₫</div>
@@ -860,7 +860,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
 
       <div class="pcard">
-        <div class="pcard-img"><span class="pcard-badge">Sa tế</span><img src="products/sa-te-cay.png" alt="Sa Tế Cay Khang Phát 60g"></div>
+        <div class="pcard-img"><span class="pcard-badge">Sa tế</span><img src="products/w-sa-te.jpg" alt="Sa Tế Cay Khang Phát 60g"></div>
         <div class="pcard-body">
           <div class="pcard-name">Sa Tế Cay Khang Phát 60g</div>
           <div class="pcard-price">💰 12.000₫</div>
