@@ -1287,21 +1287,21 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       <div class="form-row">
         <div class="form-group">
           <label>Họ và tên *</label>
-          <input type="text" placeholder="Nguyễn Văn A">
+          <input id="kp-hoten" type="text" placeholder="Nguyễn Văn A">
         </div>
         <div class="form-group">
           <label>Số điện thoại *</label>
-          <input type="tel" placeholder="090x xxx xxx">
+          <input id="kp-sdt" type="tel" placeholder="090x xxx xxx">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Email</label>
-          <input type="email" placeholder="email@example.com">
+          <input id="kp-email" type="email" placeholder="email@example.com">
         </div>
         <div class="form-group">
           <label>Bạn là</label>
-          <select>
+          <select id="kp-doituong">
             <option>Khách lẻ (B2C)</option>
             <option>Nhà phân phối / Đại lý</option>
             <option>Siêu thị / Chuỗi cửa hàng</option>
@@ -1312,9 +1312,9 @@ footer{background:#0a2e18;padding:60px 40px 30px}
       </div>
       <div class="form-group" style="margin-bottom:16px">
         <label>Sản phẩm quan tâm / Yêu cầu</label>
-        <textarea rows="4" placeholder="Ví dụ: Cần báo giá sỉ 100 chai muối chanh, 50 hộp quà tặng tết..."></textarea>
+        <textarea id="kp-yeucau" rows="4" placeholder="Ví dụ: Cần báo giá sỉ 100 chai muối chanh, 50 hộp quà tặng tết..."></textarea>
       </div>
-      <button class="form-submit" onclick="alert('Cảm ơn! Đội ngũ Khang Phát sẽ liên hệ bạn trong vòng 2 giờ làm việc. ✅')">
+      <button id="kp-submit-btn" class="form-submit" type="button" onclick="kpSubmit()">
         📨 Gửi Yêu Cầu — Nhận Báo Giá Trong 2h
       </button>
     </div>
@@ -1445,6 +1445,47 @@ footer{background:#0a2e18;padding:60px 40px 30px}
   document.getElementById('kp-modal').addEventListener('click',function(e){if(e.target.id==='kp-modal')closeModal();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 })();
+</script>
+
+<!-- ====== GỬI ĐƠN HÀNG VÀO GOOGLE SHEET ====== -->
+<script>
+// 👉 Dán link Google Apps Script (dạng .../exec) vào giữa 2 dấu nháy bên dưới:
+const KP_SHEET_ENDPOINT = "";
+
+function kpSubmit(){
+  var name = (document.getElementById('kp-hoten').value||'').trim();
+  var phone = (document.getElementById('kp-sdt').value||'').trim();
+  if(!name || !phone){ alert('Vui lòng nhập Họ tên và Số điện thoại nhé! 🙏'); return; }
+  var data = {
+    hoten: name,
+    sodienthoai: phone,
+    email: (document.getElementById('kp-email').value||'').trim(),
+    doituong: document.getElementById('kp-doituong').value || '',
+    yeucau: (document.getElementById('kp-yeucau').value||'').trim(),
+    nguon: location.href
+  };
+  var btn = document.getElementById('kp-submit-btn');
+  var reset = function(){ btn.disabled=false; btn.innerHTML='📨 Gửi Yêu Cầu — Nhận Báo Giá Trong 2h'; };
+  // Chưa gắn Google Sheet -> vẫn báo cảm ơn để không mất khách
+  if(!KP_SHEET_ENDPOINT || KP_SHEET_ENDPOINT.indexOf('http')!==0){
+    alert('✅ Cảm ơn '+name+'! Khang Phát sẽ liên hệ bạn qua số '+phone+' trong 2 giờ làm việc.');
+    return;
+  }
+  btn.disabled=true; btn.innerHTML='⏳ Đang gửi...';
+  fetch(KP_SHEET_ENDPOINT, {
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(data).toString()
+  }).then(function(){
+    alert('✅ Cảm ơn '+name+'! Khang Phát đã nhận thông tin và sẽ liên hệ bạn trong 2 giờ làm việc.');
+    document.getElementById('kp-hoten').value='';
+    document.getElementById('kp-sdt').value='';
+    document.getElementById('kp-email').value='';
+    document.getElementById('kp-yeucau').value='';
+  }).catch(function(){
+    alert('Xin lỗi, có lỗi mạng. Bạn vui lòng gọi/Zalo 0786 715 949 giúp Khang Phát nhé!');
+  }).finally(reset);
+}
 </script>
 
 <!-- SCRIPTS -->
