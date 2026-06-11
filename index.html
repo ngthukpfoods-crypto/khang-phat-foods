@@ -52,6 +52,9 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo img{height:56px;width:56px;object-fit:contain;filter:drop-shadow(0 2px 7px rgba(0,0,0,.3))}
+.nav-logo-box{background:#fff;border-radius:14px;padding:6px 15px;display:flex;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.22);transition:transform .3s}
+.nav-logo-box:hover{transform:scale(1.04)}
+.nav-logo-box img{height:54px;width:auto;object-fit:contain;display:block}
 .nav-logo-badge{height:50px;width:50px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle at 30% 30%,var(--green-light),var(--green-dark));display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.25rem;color:#fff;letter-spacing:1px;box-shadow:0 0 18px rgba(212,160,23,.35);flex-shrink:0}
 .nav-logo-text{color:#fff;font-size:1.1rem;font-weight:700;line-height:1.2}
 .nav-logo-text span{color:var(--gold-light);font-size:.75rem;display:block;font-weight:400}
@@ -438,8 +441,7 @@ footer{background:#0a2e18;padding:60px 40px 30px}
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">
-      <img src="products/logo-kp.png" alt="Logo Khang Phát Foods">
-      <div class="nav-logo-text">KHANG PHÁT FOODS <span>Hương Vị Đậm Đà</span></div>
+      <span class="nav-logo-box"><img src="products/logo-full.png" alt="Khang Phát Foods - Hương Vị Đậm Đà"></span>
     </a>
     <ul class="nav-menu">
       <li><a href="#hero" class="active">Trang Chủ</a></li>
