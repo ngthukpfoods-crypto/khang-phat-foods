@@ -50,7 +50,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden}
 
 /* ===== SPARKLE CANVAS ===== */
-#sparkle-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:.6}
+#sparkle-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:.35}
 
 /* ===== CSS VARIABLES ===== */
 :root{
@@ -1583,7 +1583,7 @@ class Particle{
 }
 
 // Init particles
-for(let i=0;i<80;i++){
+for(let i=0;i<28;i++){
   const p=new Particle();
   p.age=Math.random()*p.life;
   particles.push(p);
@@ -1598,7 +1598,7 @@ animate();
 
 // Mouse sparkle burst
 document.addEventListener('mousemove',e=>{
-  if(Math.random()>0.85){
+  if(Math.random()>0.94){
     const p=new Particle();
     p.x=e.clientX;p.y=e.clientY;
     p.size=Math.random()*2+1;
@@ -1606,7 +1606,7 @@ document.addEventListener('mousemove',e=>{
     p.speedY=(Math.random()-.5)*3;
     p.life=40;
     particles.push(p);
-    if(particles.length>150)particles.shift();
+    if(particles.length>55)particles.shift();
   }
 });
 
