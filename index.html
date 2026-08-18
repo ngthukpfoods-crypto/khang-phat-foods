@@ -102,10 +102,10 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .nav-hotline{color:var(--gold-light);font-size:.8rem;font-weight:600;white-space:nowrap}
 
 /* ===== HERO ===== */
-#hero{position:relative;height:100vh;min-height:650px;overflow:hidden;display:flex;align-items:center}
+#hero{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:center;padding:100px 0 44px}
 .hero-bg{position:absolute;inset:0;background:url('z7724326357726_3d2d8770e29d753aedbfdae2be7b9a3c.jpg') center/cover no-repeat;animation:hero-zoom 10s ease-in-out infinite alternate}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,67,33,.88) 0%,rgba(14,67,33,.6) 50%,rgba(0,0,0,.3) 100%)}
-.hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;padding-top:70px}
+.hero-content{position:relative;z-index:2;width:100%;max-width:1360px;margin:0 auto;padding:0 40px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,160,23,.2);border:1px solid var(--gold);color:var(--gold-light);padding:6px 16px;border-radius:30px;font-size:.8rem;font-weight:600;margin-bottom:20px;animation:border-glow 2s infinite}
 .hero-badge::before{content:'✦';animation:star-twinkle 1.5s infinite}
 .hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;animation:fadeInLeft .8s ease both}
@@ -118,7 +118,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,160,23,.6)}
 .btn-secondary{background:transparent;color:#fff;padding:15px 32px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.5);transition:all .3s}
 .btn-secondary:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-3px)}
-.hero-stats{position:absolute;bottom:40px;left:0;right:0;z-index:2}
+.hero-stats{position:static;z-index:2;margin-top:36px}
 .hero-stats-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;gap:32px;flex-wrap:wrap}
 .stat-item{text-align:center;animation:fadeInUp .8s ease both}
 .stat-item:nth-child(1){animation-delay:.6s}
@@ -127,6 +127,53 @@ body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1a1a;background:#fff;overf
 .stat-item:nth-child(4){animation-delay:1.2s}
 .stat-num{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:var(--gold-light);display:block;text-shadow:0 0 20px rgba(240,192,64,.5)}
 .stat-label{color:rgba(255,255,255,.8);font-size:.78rem;margin-top:2px}
+
+/* ===== HERO GRID: SLIDESHOW + FORM ĐẶT HÀNG ===== */
+@keyframes fadeInRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}
+.hero-left{animation:fadeInLeft .8s ease both}
+.hero-left .hero-badge{margin-bottom:14px}
+.hero-left .hero-sub{margin-bottom:20px;max-width:none}
+.hero-slideshow{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45);border:2px solid rgba(240,192,64,.55);background:#fff}
+.hero-slides{position:relative;width:100%;aspect-ratio:16/11}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;background:#fff}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-slide-cap{position:absolute;left:0;right:0;bottom:0;padding:34px 22px 16px;background:linear-gradient(to top,rgba(14,67,33,.93),rgba(14,67,33,.25),transparent);color:#fff;text-align:left}
+.hero-slide-cap .n{font-weight:800;font-size:1.08rem;font-family:'Montserrat',sans-serif}
+.hero-slide-cap .p{color:var(--gold-light);font-weight:900;font-size:1.2rem;margin-top:2px}
+.hs-arrow{position:absolute;top:44%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.88);border:none;cursor:pointer;font-size:1.4rem;line-height:1;color:var(--green-dark);z-index:3;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.hs-arrow:hover{background:var(--gold);color:#fff}
+.hs-prev{left:12px}.hs-next{right:12px}
+.hs-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.hs-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.6);cursor:pointer;transition:all .3s}
+.hs-dot.active{background:var(--gold-light);width:26px;border-radius:6px}
+.hero-form-card{background:rgba(255,255,255,.98);border-radius:22px;padding:26px 24px 22px;box-shadow:0 24px 70px rgba(0,0,0,.45);border:1px solid rgba(240,192,64,.6);animation:fadeInRight .8s .2s ease both;position:relative}
+.hero-form-card::before{content:'🚚 GIAO HÀNG TOÀN QUỐC · COD TOÀN QUỐC';position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--green),var(--green-light));color:#fff;font-size:.66rem;font-weight:800;letter-spacing:.4px;padding:5px 15px;border-radius:20px;white-space:nowrap;box-shadow:0 6px 18px rgba(27,111,58,.45)}
+.hfc-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.35rem;color:var(--green-dark);text-align:center;margin-top:8px}
+.hfc-sub{text-align:center;color:#666;font-size:.82rem;margin:4px 0 16px}
+.hfc-field{margin-bottom:11px}
+.hfc-field label{display:block;font-size:.8rem;font-weight:700;color:var(--green-dark);margin-bottom:5px}
+.hfc-field input,.hfc-field select{width:100%;padding:11px 14px;border:1.5px solid #dde5df;border-radius:11px;font-size:.92rem;font-family:inherit;background:#fff;color:#1a1a1a;transition:border-color .25s;box-sizing:border-box}
+.hfc-field input:focus,.hfc-field select:focus{outline:none;border-color:var(--gold)}
+.hfc-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#1a1a1a;border:none;padding:15px;border-radius:14px;font-weight:900;font-size:1.02rem;cursor:pointer;transition:all .3s;animation:pulse-glow 2.5s infinite;font-family:'Montserrat',sans-serif;margin-top:4px}
+.hfc-btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(212,160,23,.55)}
+.hfc-or{text-align:center;font-size:.82rem;color:#777;margin-top:12px}
+.hfc-or a{color:var(--green);font-weight:800;text-decoration:none}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  #hero{padding:88px 0 34px}
+  .hero-title{font-size:clamp(1.8rem,7vw,2.4rem)}
+  .hero-sub{font-size:1rem}
+  .hero-stats-inner{gap:16px;justify-content:space-between}
+  .stat-num{font-size:1.6rem}
+}
+@media(max-width:600px){
+  .hero-stats-inner{gap:8px}
+  .stat-item{flex:1 1 42%}
+  .hero-slide-cap .n{font-size:.94rem}
+  .hero-form-card{padding:24px 18px 20px}
+}
 
 /* ===== TICKER ===== */
 #ticker{background:linear-gradient(135deg,var(--gold-dark,#8b6914),var(--gold));overflow:hidden;padding:12px 0}
@@ -499,34 +546,97 @@ footer{background:#0a2e18;padding:60px 40px 30px}
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">✦ Thương Hiệu Gia Vị Đỉnh Việt Nam</div>
-    <h1 class="hero-title">
-      Gia Vị <span class="highlight">Khang Phát</span><br>
-      Hương Vị Đậm Đà —<br>Bữa Cơm Thêm Yêu Thương
-    </h1>
-    <p class="hero-sub">Bộ sưu tập gia vị hoàn chỉnh: sốt chấm, sốt ướp, gia vị nấu lẩu — sạch, ngon, tiện lợi cho mọi bữa ăn. Không phẩm màu. Không chất bảo quản độc hại.</p>
-    <div class="hero-actions">
-      <a href="#featured" class="btn-primary">🛒 Xem Sản Phẩm Ngay</a>
-      <a href="#about" class="btn-secondary">▶ Khám Phá Câu Chuyện</a>
+    <div class="hero-grid">
+
+      <!-- CỘT TRÁI: Thương hiệu + Slideshow -->
+      <div class="hero-left">
+        <div class="hero-badge">✦ Thương Hiệu Gia Vị Đỉnh Việt Nam</div>
+        <h1 class="hero-title">Gia Vị <span class="highlight">Khang Phát</span><br>Nêm Nếm Yêu Thương</h1>
+        <p class="hero-sub">Sốt chấm · sốt ướp · gia vị nấu lẩu — sạch, ngon, tiện lợi. Không phẩm màu, không chất bảo quản độc hại.</p>
+
+        <div class="hero-slideshow">
+          <div class="hero-slides">
+            <div class="hero-slide active">
+              <img src="products/w-bo-ne.jpg" alt="Gia Vị Ướp Bò Né Khang Phát">
+              <div class="hero-slide-cap"><div class="n">Gia Vị Ướp Bò Né</div><div class="p">36.000₫</div></div>
+            </div>
+            <div class="hero-slide">
+              <img src="products/w-muoi-chanh-do.jpg" alt="Muối Chanh Ớt Đỏ Khang Phát">
+              <div class="hero-slide-cap"><div class="n">Muối Chanh Ớt Đỏ</div><div class="p">25.000₫</div></div>
+            </div>
+            <div class="hero-slide">
+              <img src="products/w-sot-lau-bo.jpg" alt="Sốt Lẩu Bò Khang Phát">
+              <div class="hero-slide-cap"><div class="n">Sốt Lẩu Bò Đậm Đà</div><div class="p">25.000₫</div></div>
+            </div>
+            <div class="hero-slide">
+              <img src="products/w-nuoc-mam.jpg" alt="Nước Mắm Chay Khang Phát">
+              <div class="hero-slide-cap"><div class="n">Nước Mắm Chay</div><div class="p">30.000₫</div></div>
+            </div>
+          </div>
+          <button class="hs-arrow hs-prev" type="button" onclick="hsGo(hsIdx-1)" aria-label="Ảnh trước">‹</button>
+          <button class="hs-arrow hs-next" type="button" onclick="hsGo(hsIdx+1)" aria-label="Ảnh sau">›</button>
+          <div class="hs-dots">
+            <span class="hs-dot active" onclick="hsGo(0)"></span>
+            <span class="hs-dot" onclick="hsGo(1)"></span>
+            <span class="hs-dot" onclick="hsGo(2)"></span>
+            <span class="hs-dot" onclick="hsGo(3)"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CỘT PHẢI: Form đặt hàng nhanh -->
+      <div class="hero-right">
+        <div class="hero-form-card">
+          <div class="hfc-title">🛒 ĐẶT HÀNG NHANH</div>
+          <div class="hfc-sub">Để lại thông tin — Khang Phát gọi lại trong 15 phút</div>
+          <div class="hfc-field">
+            <label>Họ và tên *</label>
+            <input id="kp2-hoten" type="text" placeholder="Nguyễn Văn A">
+          </div>
+          <div class="hfc-field">
+            <label>Số điện thoại *</label>
+            <input id="kp2-sdt" type="tel" placeholder="090x xxx xxx">
+          </div>
+          <div class="hfc-field">
+            <label>Sản phẩm quan tâm</label>
+            <select id="kp2-sanpham">
+              <option>Gia vị ướp Bò Né</option>
+              <option>Gia vị ướp Mực Né</option>
+              <option>Muối Chanh Ớt</option>
+              <option>Sốt Lẩu Bò</option>
+              <option>Sốt Lẩu Thái</option>
+              <option>Nước Mắm Chay</option>
+              <option>Sa Tế Cay</option>
+              <option>Combo gia vị đầy đủ</option>
+              <option>Đặt sỉ / Nhà phân phối</option>
+              <option>Sản phẩm khác</option>
+            </select>
+          </div>
+          <button id="kp2-submit-btn" class="hfc-btn" type="button" onclick="kpQuickSubmit()">🛒 ĐẶT NGAY</button>
+          <div class="hfc-or">hoặc gọi ngay <a href="tel:0786715949">0786 715 949</a></div>
+        </div>
+      </div>
+
     </div>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stats-inner">
-      <div class="stat-item">
-        <span class="stat-num" data-count="50">50+</span>
-        <div class="stat-label">Sản phẩm gia vị</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num" data-count="10000">10.000+</span>
-        <div class="stat-label">Khách hàng tin dùng</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num" data-count="5">5+</span>
-        <div class="stat-label">Năm kinh nghiệm</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num" data-count="63">63</span>
-        <div class="stat-label">Tỉnh thành phân phối</div>
+
+    <div class="hero-stats">
+      <div class="hero-stats-inner">
+        <div class="stat-item">
+          <span class="stat-num" data-count="50">50+</span>
+          <div class="stat-label">Sản phẩm gia vị</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="10000">10.000+</span>
+          <div class="stat-label">Khách hàng tin dùng</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="5">5+</span>
+          <div class="stat-label">Năm kinh nghiệm</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="63">63</span>
+          <div class="stat-label">Tỉnh thành phân phối</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1528,6 +1638,53 @@ function kpSubmit(){
     alert('Xin lỗi, có lỗi mạng. Bạn vui lòng gọi/Zalo 0786 715 949 giúp Khang Phát nhé!');
   }).finally(reset);
 }
+
+// ===== FORM ĐẶT HÀNG NHANH (đầu trang) =====
+function kpQuickSubmit(){
+  var name = (document.getElementById('kp2-hoten').value||'').trim();
+  var phone = (document.getElementById('kp2-sdt').value||'').trim();
+  if(!name || !phone){ alert('Vui lòng nhập Họ tên và Số điện thoại nhé! 🙏'); return; }
+  var sp = document.getElementById('kp2-sanpham').value || '';
+  var data = {
+    hoten: name,
+    sodienthoai: phone,
+    email: '',
+    doituong: 'Khách đặt nhanh (đầu trang)',
+    yeucau: 'Quan tâm: ' + sp,
+    nguon: 'Form đầu trang · ' + location.href
+  };
+  var btn = document.getElementById('kp2-submit-btn');
+  var reset = function(){ btn.disabled=false; btn.innerHTML='🛒 ĐẶT NGAY'; };
+  if(!KP_SHEET_ENDPOINT || KP_SHEET_ENDPOINT.indexOf('http')!==0){
+    alert('✅ Cảm ơn '+name+'! Khang Phát sẽ liên hệ bạn qua số '+phone+' ngay.'); return;
+  }
+  btn.disabled=true; btn.innerHTML='⏳ Đang gửi...';
+  fetch(KP_SHEET_ENDPOINT, {
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(data).toString()
+  }).then(function(){
+    alert('✅ Cảm ơn '+name+'! Khang Phát đã nhận thông tin và sẽ gọi lại số '+phone+' trong ít phút.');
+    document.getElementById('kp2-hoten').value='';
+    document.getElementById('kp2-sdt').value='';
+  }).catch(function(){
+    alert('Xin lỗi, có lỗi mạng. Bạn vui lòng gọi/Zalo 0786 715 949 nhé!');
+  }).finally(reset);
+}
+
+// ===== SLIDESHOW HERO (tự chạy) =====
+var hsIdx = 0;
+function hsGo(i){
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.hs-dot');
+  if(!slides.length) return;
+  slides[hsIdx].classList.remove('active');
+  if(dots[hsIdx]) dots[hsIdx].classList.remove('active');
+  hsIdx = (i + slides.length) % slides.length;
+  slides[hsIdx].classList.add('active');
+  if(dots[hsIdx]) dots[hsIdx].classList.add('active');
+}
+setInterval(function(){ hsGo(hsIdx+1); }, 4000);
 </script>
 
 <!-- SCRIPTS -->
